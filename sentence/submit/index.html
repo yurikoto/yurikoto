@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">music | Yurikoto</title>
+  <title itemprop="name">台词投稿 | Yurikoto</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -317,30 +317,35 @@
   
     <div class="pattern-center ">
       <div class="pattern-attachment-img">
-        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.4/img/banner/music.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yuri.tigerxly.com/api/wallpaper/all" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
       </div>
       <header class="pattern-header ">
         <h1 class="entry-title">
-        喜欢的音乐</h1>
+        台词投稿</h1>
       </header>
     </div>
   
   <div id="content" class="site-content">
     <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      
-<meting-js
-  server="netease"
-  type="playlist"
-  id="2731690811"
-  mutex="true">
-</meting-js>
+      <p>欢迎您进行台词投稿。</p>
 
-<meting-js
-  server="netease"
-  type="playlist"
-  id="419239189"
-  mutex="true">
-</meting-js>
+  <div class="form-group">
+    <label for="sentence-content">台词内容：</label>
+    <textarea type="text" rows="4" class="form-control" id="sentence-content" placeholder="必填"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="sentence-source">出处：</label>
+    <input type="text" class="form-control" id="sentence-source" placeholder="必填">
+  </div>
+  <div class="form-group">
+    <label for="sentence-email">邮箱：</label>
+    <input type="email" class="form-control" id="sentence-email" placeholder="选填，用来向您发送审核信息">
+  </div>
+  <button class="btn btn-primary text-center" id="sentence-submit">投稿</button>
+  <span id="sentence-submit-info" style="display:none;"></span>
+<script>
+    $("#sentence-submit").on("click", sentence_submit());
+</script>
 
       <!-- .entry-content -->
       <!--  -->

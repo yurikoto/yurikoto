@@ -49,17 +49,49 @@
   /*End of Initial Variables*/
   </script>
   <script type="text/javascript">
-  var bg = "https://yuri.tigerxly.com/api/wallpaper/all,https://yuri.tigerxly.com/api/wallpaper/day,https://yuri.tigerxly.com/api/wallpaper/night".split(",");
+  var bg = "https://yuri.tigerxly.com/api/wallpaper/all".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
   }
   </script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    // const visitorId;
+    function initFingerprintJS() {
+      var visitorId;
+      FingerprintJS.load().then(fp => {
+        // The FingerprintJS agent is ready.
+        // Get a visitor identifier when you'd like to.
+        fp.get().then(result => {
+          // This is the visitor identifier:
+          window.visitorId = result.visitorId;
+        });
+      });
+    }
+  </script>
+  <script
+    async
+    src="//cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"
+    onload="initFingerprintJS()"
+  ></script>
+  <script src="https://v.vaptcha.com/v3.js"></script>
+  <script src="http://127.0.0.1:4000/js/sentence.js"></script>
   <style type="text/css">
   .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
   </style>
-  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  <style type="text/css">
+  .site-top .lower nav{display:block !important;}
+  .author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,
+  .float-content i:hover{color:#FE9600}
+  .feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}
+  .comments .comments-hidden{display:none !important;
+  background-position:center center;background-attachment:inherit;}
   </style>
+  
 <meta name="generator" content="Hexo 5.3.0"></head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
@@ -182,7 +214,93 @@
                 <a href="/links/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
-                    友人帐
+                    友情链接
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-book" aria-hidden="true"></i>
+                    接口使用
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/sentence/">
+                          <i class="fa fa-comment-dots" aria-hidden="true"></i>
+                          台词
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/wallpaper/">
+                          <i class="fa fa-images" aria-hidden="true"></i>
+                          壁纸
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-upload" aria-hidden="true"></i>
+                    投稿
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/sentence/submit/">
+                          <i class="fa fa-comment-dots" aria-hidden="true"></i>
+                          台词
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/wallpaper/submit/">
+                          <i class="fa fa-images" aria-hidden="true"></i>
+                          壁纸
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/thanks/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart" aria-hidden="true"></i>
+                    赞助
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-info" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a target="_blank" rel="noopener" href="https://github.com/yurikoto">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-github" aria-hidden="true"></i>
+                    Github
                   </span>
                 </a>
                 
@@ -338,7 +456,7 @@
         <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
         <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
       </div>
-      <p style="color: #666666;">&copy 2021</p>
+      <span style="color: #b9b9b9;">&copy 2021  &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://yurikoto.com"><img src="https://cdn.jsdelivr.net/gh/vanfantasy2333/images@master/logo/yurikoto.png" width="80px"/></a>   &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.tigerxly.com"><img src="https://cdn.jsdelivr.net/gh/vanfantasy2333/images@master/logo/tigerxly.png" width="80px"/></a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="ICP" href="http://www.beian.miit.gov.cn/" target="_blank" one-link-mark="yes">鄂ICP备20008559号-3</a></span>
     </div>
     <div class="footer-device">
     <p style="font-family: 'Ubuntu', sans-serif;">
@@ -425,17 +543,17 @@ $(document).ready(function() {
     </div>
   </section>
   <div id="mo-nav" class="">
-  <div class="m-avatar">
+  <!-- <div class="m-avatar">
     <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg">
-  </div>
-  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">Yurikoto</p>
-  <p style="text-align: center; word-spacing: 20px;">
+  </div> -->
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px; margin-top: 20px;">Yurikoto</p>
+  <!-- <p style="text-align: center; word-spacing: 20px;">
     
       
         <a href="http://github.com/yurikoto" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
       
     
-  </p>
+  </p> -->
   <ul id="menu-new-1" class="menu">
     
       <li>
@@ -452,14 +570,99 @@ $(document).ready(function() {
         <a href="/links/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
-            友人帐
+            友情链接
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-book" aria-hidden="true"></i>
+            接口使用
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/sentence/">
+                  <i class="fa fa-comment-dots" aria-hidden="true"></i>
+                  台词
+                </a>
+              </li>
+            
+              <li>
+                <a href="/wallpaper/">
+                  <i class="fa fa-images" aria-hidden="true"></i>
+                  壁纸
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-upload" aria-hidden="true"></i>
+            投稿
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/sentence/submit/">
+                  <i class="fa fa-comment-dots" aria-hidden="true"></i>
+                  台词
+                </a>
+              </li>
+            
+              <li>
+                <a href="/wallpaper/submit/">
+                  <i class="fa fa-images" aria-hidden="true"></i>
+                  壁纸
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/thanks/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart" aria-hidden="true"></i>
+            赞助
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/about/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-info" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a target="_blank" rel="noopener" href="https://github.com/yurikoto">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-github" aria-hidden="true"></i>
+            Github
           </span>
         </a>
         
       </li>
     
   </ul>
-  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
 </div>
 <button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
@@ -494,7 +697,7 @@ $(document).ready(function() {
 </style>
 <meting-js
 
-    id="2660651585"
+    id="2922259991"
 
     server="netease"
 

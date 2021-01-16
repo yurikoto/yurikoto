@@ -49,17 +49,49 @@
   /*End of Initial Variables*/
   </script>
   <script type="text/javascript">
-  var bg = "https://yuri.tigerxly.com/api/wallpaper/all,https://yuri.tigerxly.com/api/wallpaper/day,https://yuri.tigerxly.com/api/wallpaper/night".split(",");
+  var bg = "https://yuri.tigerxly.com/api/wallpaper/all".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
   }
   </script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    // const visitorId;
+    function initFingerprintJS() {
+      var visitorId;
+      FingerprintJS.load().then(fp => {
+        // The FingerprintJS agent is ready.
+        // Get a visitor identifier when you'd like to.
+        fp.get().then(result => {
+          // This is the visitor identifier:
+          window.visitorId = result.visitorId;
+        });
+      });
+    }
+  </script>
+  <script
+    async
+    src="//cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"
+    onload="initFingerprintJS()"
+  ></script>
+  <script src="https://v.vaptcha.com/v3.js"></script>
+  <script src="http://127.0.0.1:4000/js/sentence.js"></script>
   <style type="text/css">
   .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
   </style>
-  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  <style type="text/css">
+  .site-top .lower nav{display:block !important;}
+  .author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,
+  .float-content i:hover{color:#FE9600}
+  .feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}
+  .comments .comments-hidden{display:none !important;
+  background-position:center center;background-attachment:inherit;}
   </style>
+  
 <meta name="generator" content="Hexo 5.3.0"></head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
@@ -182,7 +214,93 @@
                 <a href="/links/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
-                    友人帐
+                    友情链接
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-book" aria-hidden="true"></i>
+                    接口使用
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/sentence/">
+                          <i class="fa fa-comment-dots" aria-hidden="true"></i>
+                          台词
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/wallpaper/">
+                          <i class="fa fa-images" aria-hidden="true"></i>
+                          壁纸
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-upload" aria-hidden="true"></i>
+                    投稿
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/sentence/submit/">
+                          <i class="fa fa-comment-dots" aria-hidden="true"></i>
+                          台词
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/wallpaper/submit/">
+                          <i class="fa fa-images" aria-hidden="true"></i>
+                          壁纸
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/thanks/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart" aria-hidden="true"></i>
+                    赞助
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-info" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a target="_blank" rel="noopener" href="https://github.com/yurikoto">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-github" aria-hidden="true"></i>
+                    Github
                   </span>
                 </a>
                 
@@ -209,8 +327,8 @@
 <div id="content" class="site-content">
   <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
     <p>
-    欢迎交换友链 ꉂ(ˊᗜˋ)</p>
-    <p>
+    欢迎与本站交换友情链接，请<a href="https://github.com/yurikoto/yurikoto/issues/new?assignees=&labels=&template=------.md&title=" target="_blank" rel="nofollow">提交issue</a>以申请友链。总体要求内容合理合法，不拒绝新站点，不拒绝托管于github、博客园等免费平台的博客。在申请得到回复前可以暂时不链接本站，申请得到同意后请在一周内链接本站。具体要求请参考<a href="https://blog.tigerxly.com/friends" target="_blank">这里</a>，并请仔细阅读友链申请issue模版中“我的承诺”部分的内容。</p>
+    <!-- <p>
       请留言告诉我你的：<br>
       1、名字<br>
       2、一句话介绍（熟人我会亲自帮写的）<br>
@@ -225,61 +343,23 @@
       获取嵌入代码</a>
     </p>
     <p style="font-size: 13px">
-    ※ 为保证友链质量，今后新申请的友链将经过筛选，请在收到我的回复邮件后再于贵站添加本站链接。原则上过去已添加友链不会轻易删除，如遇死链、改变网站用途（友链主要针对的是同类的博客），将单独移至“阵亡将士”分类中，下次清理时未整改的将移除；如遇盗版、破解、网页植入挖矿脚本、极低质量内容、单方面移除本站链接，将直接移除，恕不另行通知。</p>
+    ※ 为保证友链质量，今后新申请的友链将经过筛选，请在收到我的回复邮件后再于贵站添加本站链接。原则上过去已添加友链不会轻易删除，如遇死链、改变网站用途（友链主要针对的是同类的博客），将单独移至“阵亡将士”分类中，下次清理时未整改的将移除；如遇盗版、破解、网页植入挖矿脚本、极低质量内容、单方面移除本站链接，将直接移除，恕不另行通知。</p> -->
     
       <div class="links">
         
-          <h3 class="link-title"><span class="fake-title">1. 个人项目</span></h3>
-          
-            <div class="link-description">充分说明这家伙是条咸鱼 < (￣︶￣)></div>
-          
-          <ul class="link-items fontSmooth">
-            
-              <li class="link-item">
-                <a class="link-item-inner effect-apollo" href="https://shino.cc/fgvf" title="Google 镜像" target="_blank" rel="friend">
-                  <img class="lazyload" onerror="imgError(this,1)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cloud.moezx.cc/Picture/svg/landscape/fields.svg" src="https://cloud.moezx.cc/Picture/svg/landscape/fields.svg">
-                  <span class="sitename">
-                  Google</span>
-                  <div class="linkdes">
-                  Google 镜像</div>
-                </a>
-              </li>
-            
-              <li class="link-item">
-                <a class="link-item-inner effect-apollo" href="https://shino.cc/fgvf" title="Google 镜像" target="_blank" rel="friend">
-                  <img class="lazyload" onerror="imgError(this,1)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cloud.moezx.cc/Picture/svg/landscape/fields.svg" src="https://cloud.moezx.cc/Picture/svg/landscape/fields.svg">
-                  <span class="sitename">
-                  Google</span>
-                  <div class="linkdes">
-                  Google 镜像</div>
-                </a>
-              </li>
-            
-          </ul>
-        
-          <h3 class="link-title"><span class="fake-title">2. 小伙伴们</span></h3>
+          <h3 class="link-title"><span class="fake-title">1. 小伙伴们</span></h3>
           
             <div class="link-description">欢迎交换友链 ꉂ(ˊᗜˋ)</div>
           
           <ul class="link-items fontSmooth">
             
               <li class="link-item">
-                <a class="link-item-inner effect-apollo" href="https://shino.cc/fgvf" title="Google 镜像" target="_blank" rel="friend">
-                  <img class="lazyload" onerror="imgError(this,1)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cloud.moezx.cc/Picture/svg/landscape/fields.svg" src="https://cloud.moezx.cc/Picture/svg/landscape/fields.svg">
+                <a class="link-item-inner effect-apollo" href="https://blog.tigerxly.com" title="记录学习、生活的小站" target="_blank" rel="friend">
+                  <img class="lazyload" onerror="imgError(this,1)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://img.sunxiaochuan258.com/avatar/himari_256.jpg" src="https://img.sunxiaochuan258.com/avatar/himari_256.jpg">
                   <span class="sitename">
-                  Google</span>
+                  FANTASY博客</span>
                   <div class="linkdes">
-                  Google 镜像</div>
-                </a>
-              </li>
-            
-              <li class="link-item">
-                <a class="link-item-inner effect-apollo" href="https://shino.cc/fgvf" title="Google 镜像" target="_blank" rel="friend">
-                  <img class="lazyload" onerror="imgError(this,1)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cloud.moezx.cc/Picture/svg/landscape/fields.svg" src="https://cloud.moezx.cc/Picture/svg/landscape/fields.svg">
-                  <span class="sitename">
-                  Google</span>
-                  <div class="linkdes">
-                  Google 镜像</div>
+                  记录学习、生活的小站</div>
                 </a>
               </li>
             
@@ -287,22 +367,8 @@
         
       </div>
     
-    
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
-        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ..."
-      })
-  }
-</script>
-
-    <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+    <!--  -->
+    <!-- <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
     <footer class="post-footer">
       <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
       <div class="post-tags">
@@ -311,9 +377,9 @@
         <div class="social-share sharehidden share-component"></div>
         <i class="iconfont show-share icon-forward"></i>
       </div>
-    </footer><!-- .entry-footer -->
+    </footer>.entry-footer -->
   </article>
-  <section class="author-profile">
+  <!-- <section class="author-profile">
     <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
       <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg" itemprop="image" alt="hojun" height="70" width="70"></a>
       <div class="meta">
@@ -325,7 +391,7 @@
     </div>
     <hr>
     <p><i class="iconfont icon-write"></i>Live your life with passion! With some drive!</p>
-  </section>
+  </section> -->
 <!--   <div class="have-toc">
   </div>
   <div class="toc-container" style="height: 4886.5px;">
@@ -407,7 +473,7 @@
         <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
         <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
       </div>
-      <p style="color: #666666;">&copy 2021</p>
+      <span style="color: #b9b9b9;">&copy 2021  &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://yurikoto.com"><img src="https://cdn.jsdelivr.net/gh/vanfantasy2333/images@master/logo/yurikoto.png" width="80px"/></a>   &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.tigerxly.com"><img src="https://cdn.jsdelivr.net/gh/vanfantasy2333/images@master/logo/tigerxly.png" width="80px"/></a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="ICP" href="http://www.beian.miit.gov.cn/" target="_blank" one-link-mark="yes">鄂ICP备20008559号-3</a></span>
     </div>
     <div class="footer-device">
     <p style="font-family: 'Ubuntu', sans-serif;">
@@ -494,17 +560,17 @@ $(document).ready(function() {
     </div>
   </section>
   <div id="mo-nav" class="">
-  <div class="m-avatar">
+  <!-- <div class="m-avatar">
     <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg">
-  </div>
-  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">Yurikoto</p>
-  <p style="text-align: center; word-spacing: 20px;">
+  </div> -->
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px; margin-top: 20px;">Yurikoto</p>
+  <!-- <p style="text-align: center; word-spacing: 20px;">
     
       
         <a href="http://github.com/yurikoto" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
       
     
-  </p>
+  </p> -->
   <ul id="menu-new-1" class="menu">
     
       <li>
@@ -521,14 +587,99 @@ $(document).ready(function() {
         <a href="/links/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
-            友人帐
+            友情链接
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-book" aria-hidden="true"></i>
+            接口使用
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/sentence/">
+                  <i class="fa fa-comment-dots" aria-hidden="true"></i>
+                  台词
+                </a>
+              </li>
+            
+              <li>
+                <a href="/wallpaper/">
+                  <i class="fa fa-images" aria-hidden="true"></i>
+                  壁纸
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-upload" aria-hidden="true"></i>
+            投稿
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/sentence/submit/">
+                  <i class="fa fa-comment-dots" aria-hidden="true"></i>
+                  台词
+                </a>
+              </li>
+            
+              <li>
+                <a href="/wallpaper/submit/">
+                  <i class="fa fa-images" aria-hidden="true"></i>
+                  壁纸
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/thanks/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart" aria-hidden="true"></i>
+            赞助
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/about/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-info" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a target="_blank" rel="noopener" href="https://github.com/yurikoto">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-github" aria-hidden="true"></i>
+            Github
           </span>
         </a>
         
       </li>
     
   </ul>
-  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
 </div>
 <button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
@@ -563,7 +714,7 @@ $(document).ready(function() {
 </style>
 <meting-js
 
-    id="2660651585"
+    id="2922259991"
 
     server="netease"
 
