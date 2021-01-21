@@ -3,27 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/js/yurikoto-app.js"></script>
   
   <title itemprop="name">archive_a | Yurikoto</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/css/yurikoto.css">
   <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/gh/Tarptaeya/repo-card@master/repo-card.js"></script> -->
   <script>
     // const visitorId;
-    function initFingerprintJS() {
-      var visitorId;
-      FingerprintJS.load().then(fp => {
-        // The FingerprintJS agent is ready.
-        // Get a visitor identifier when you'd like to.
-        fp.get().then(result => {
-          // This is the visitor identifier:
-          window.visitorId = result.visitorId;
-        });
-      });
-    }
     $(document).ready(function(){
       repocardInit();
     });
@@ -37,6 +28,7 @@
   <script src="/js/sentence.js"></script>
   <link href="https://cdn.jsdelivr.net/gh/vanfantasy2333/prism-pink@master/prism.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/gh/vanfantasy2333/prism-pink@master/prism.js"></script>
+
 
   
     <link rel="shortcut icon" href="/images/favicon.ico">
@@ -73,9 +65,8 @@
   mashiro_option.mathjax = "0";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
-
-  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
-  // mashiro_option.float_player_on = true;
+  mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  mashiro_option.float_player_on = true;
 
   /*End of Initial Variables*/
   </script>
@@ -86,18 +77,6 @@
     alert('朋友，IE浏览器未适配哦~');
   }
   </script>
-  <style type="text/css">
-  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
-  </style>
-  <style type="text/css">
-  .site-top .lower nav{display:block !important;}
-  .author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,
-  .float-content i:hover{color:#FE9600}
-  .feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}
-  .comments .comments-hidden{display:none !important;
-  background-position:center center;background-attachment:inherit;}
-  </style>
-  
 <meta name="generator" content="Hexo 5.3.0"></head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
@@ -106,53 +85,15 @@
   <a href="#" class="cd-top faa-float animated"></a>
   <section id="main-container">
     <div class="headertop filter-dim">
-  <!-- <div id="banner_wave_1"></div>
-  <div id="banner_wave_2"></div> -->
   <figure id="centerbg" class="centerbg">
     <div class="focusinfo no-select">
       <div>
         <div class="brand">
-            <!-- <div class="title center-align">Yurikoto</div> -->
             <div class="description center-align">
                 <div id="slogan"><p id="sentence-container" style="font-size: 35px;line-height: 47px;font-weight: 500;">『&nbsp;&nbsp;<span id="sentence"></span>&nbsp;&nbsp;』</p><div><p id="source" style="float:right;font-size: 20px;font-weight: 400;"></p><div></div>
                 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
                 <script>
-                  var source;
-                  var prefix = "From: ";
-                  $.get("https://yuri-test-backend.sunxiaochuan258.com/sentence", function(data, status){
-                    try{
-                      data = JSON.parse(data);
-                      source = prefix + data.source;
-                    }
-                    catch(e){};
-                    if(status == "success"){
-                      $("#source").text(source);
-                      var typed = new Typed("#sentence", {
-                          strings: [data.content],
-                          startDelay: 300,
-                          typeSpeed: 150,
-                          backDelay: 5000,
-                          loop: true,
-                          backSpeed: 50,
-                          showCursor: true,
-                          onComplete: function(self){
-                            $.get("https://yuri-test-backend.sunxiaochuan258.com/sentence", function(data, status){
-                              if(status == "success"){
-                                try{
-                                  data = JSON.parse(data);
-                                  source = prefix + data.source;
-                                }
-                                catch(e){};
-                                self.strings[0] = data.content;
-                              }
-                            });
-                          },
-                          onLastStringBackspaced: function(self){
-                            $("#source").text(source);
-                          }
-                      });
-                    }
-                  });
+                  show_sentence();
                 </script>
             </div>
         </div>
@@ -474,47 +415,6 @@ if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
   var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"2333.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
 }
 /* ]]> */
-
-</script>
-<script>
-$(document).ready(function() {
-  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
-    if ($(".pattern-center").length > 0) { //有图的情况
-      tocbot.init({
-          // Where to render the table of contents.
-          tocSelector: '.toc', // 放置目录的容器
-          // Where to grab the headings to build the table of contents.
-          contentSelector: '.entry-content', // 正文内容所在
-          // Which headings to grab inside of the contentSelector element.
-          scrollSmooth: true,
-          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
-          headingsOffset: -400,
-          scrollSmoothOffset: -85
-      });
-    } else {
-      tocbot.init({
-          // Where to render the table of contents.
-          tocSelector: '.toc', // 放置目录的容器
-          // Where to grab the headings to build the table of contents.
-          contentSelector: '.entry-content', // 正文内容所在
-          // Which headings to grab inside of the contentSelector element.
-          scrollSmooth: true,
-          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
-          headingsOffset: -85,
-          scrollSmoothOffset: -85
-      });
-    }
-    var offsetTop = $('.toc').offset().top - 95;
-    window.onscroll = function() {
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-      if (scrollTop >= offsetTop) {
-        $('.toc').addClass('toc-fixed');
-      } else {
-        $('.toc').removeClass('toc-fixed');
-      }
-    }
-  }
-});
 </script>
 
     <div class="openNav no-select" style="height: 50px;">
