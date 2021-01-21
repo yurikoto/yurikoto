@@ -5,11 +5,44 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
   <title itemprop="name">archive_a: 2021 | Yurikoto</title>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/Tarptaeya/repo-card@master/repo-card.js"></script> -->
+  <script>
+    // const visitorId;
+    function initFingerprintJS() {
+      var visitorId;
+      FingerprintJS.load().then(fp => {
+        // The FingerprintJS agent is ready.
+        // Get a visitor identifier when you'd like to.
+        fp.get().then(result => {
+          // This is the visitor identifier:
+          window.visitorId = result.visitorId;
+        });
+      });
+    }
+    $(document).ready(function(){
+      repocardInit();
+    });
+  </script>
+  <script
+    async
+    src="//cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"
+    onload="initFingerprintJS()"
+  ></script>
+  <script src="https://v.vaptcha.com/v3.js"></script>
+  <script src="/js/sentence.js"></script>
+  <link href="https://cdn.jsdelivr.net/gh/vanfantasy2333/prism-pink@master/prism.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/gh/vanfantasy2333/prism-pink@master/prism.js"></script>
+
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
   <meta http-equiv="x-dns-prefetch-control" content="on">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="stylesheet" href="/css/googlefont.css" media="all">
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
   <link rel="stylesheet" href="/css/lib.min.css" media="all">
@@ -19,8 +52,6 @@
   <link rel="stylesheet" href="/css/zoom.css" media="all">
   <!-- <link rel="stylesheet" href="/libs/materialize/materialize.min.css" media="all"> -->
   <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
-" type="text/css" media="all"> -->
   <script>
   /*Initial Variables*/
   var mashiro_option = new Object();
@@ -49,37 +80,12 @@
   /*End of Initial Variables*/
   </script>
   <script type="text/javascript">
-  var bg = "https://yuri.tigerxly.com/api/wallpaper/all".split(",");
+  var bg = "https://yuri-test-backend.sunxiaochuan258.com/wallpaper".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
   }
   </script>
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script>
-    // const visitorId;
-    function initFingerprintJS() {
-      var visitorId;
-      FingerprintJS.load().then(fp => {
-        // The FingerprintJS agent is ready.
-        // Get a visitor identifier when you'd like to.
-        fp.get().then(result => {
-          // This is the visitor identifier:
-          window.visitorId = result.visitorId;
-        });
-      });
-    }
-  </script>
-  <script
-    async
-    src="//cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"
-    onload="initFingerprintJS()"
-  ></script>
-  <script src="https://v.vaptcha.com/v3.js"></script>
-  <script src="http://127.0.0.1:4000/js/sentence.js"></script>
   <style type="text/css">
   .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
   </style>
@@ -106,51 +112,52 @@
     <div class="focusinfo no-select">
       <div>
         <div class="brand">
-            <div class="title center-align">Yurikoto</div>
+            <!-- <div class="title center-align">Yurikoto</div> -->
             <div class="description center-align">
-                <span id="subtitle"></span>
+                <div id="slogan"><p id="sentence-container" style="font-size: 35px;line-height: 47px;font-weight: 500;">『&nbsp;&nbsp;<span id="sentence"></span>&nbsp;&nbsp;』</p><div><p id="source" style="float:right;font-size: 20px;font-weight: 400;"></p><div></div>
                 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
                 <script>
-                    var typed = new Typed("#subtitle",{
-                        strings: ['测试语句，测试语句测试语句测试语句'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
+                  var source;
+                  var prefix = "From: ";
+                  $.get("https://yuri-test-backend.sunxiaochuan258.com/sentence", function(data, status){
+                    try{
+                      data = JSON.parse(data);
+                      source = prefix + data.source;
+                    }
+                    catch(e){};
+                    if(status == "success"){
+                      $("#source").text(source);
+                      var typed = new Typed("#sentence", {
+                          strings: [data.content],
+                          startDelay: 300,
+                          typeSpeed: 150,
+                          backDelay: 5000,
+                          loop: true,
+                          backSpeed: 50,
+                          showCursor: true,
+                          onComplete: function(self){
+                            $.get("https://yuri-test-backend.sunxiaochuan258.com/sentence", function(data, status){
+                              if(status == "success"){
+                                try{
+                                  data = JSON.parse(data);
+                                  source = prefix + data.source;
+                                }
+                                catch(e){};
+                                self.strings[0] = data.content;
+                              }
+                            });
+                          },
+                          onLastStringBackspaced: function(self){
+                            $("#source").text(source);
+                          }
+                      });
+                    }
+                  });
                 </script>
             </div>
         </div>
     </div>
     </div>
-      <!-- <div class="header-tou">
-        <a href="https://yuri-test.sunxiaochuan258.com">
-          <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg">
-        </a>
-      </div>
-      <div class="header-info">
-        <p>Live your life with passion! With some drive!</p>
-        <div class="top-social_v2">
-          <li id="bg-pre">
-            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
-          </li>
-          
-            
-              
-                <li>
-                  <a href="http://github.com/yurikoto" target="_blank" class="social-github" title="github">
-                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/github.png">
-                  </a>
-                </li>
-              
-            
-          
-          <li id="bg-next">
-            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
-          </li>
-        </div>
-      </div> -->
     </div>
   </figure>
   <div id="video-container" style="display:none">
@@ -163,12 +170,6 @@
     <div class="video-stu">
     </div>
   </div>
-  <!-- <div class="headertop-down faa-float animated" onclick="headertop_down()">
-    <span>
-      <i class="fa fa-chevron-down" aria-hidden="true">
-      </i>
-    </span>
-  </div> -->
 </div>
     <div id="page" class="site wrapper">
       <header class="site-header no-select gizle sabit" role="banner">
@@ -178,15 +179,10 @@
         <span class="logolink moe-mashiro">
           <a href="/">
             <span class="sakurasono">Yurikoto</span>
-            <!-- <span class="shironeko"></span> -->
           </a>
         </span>
       </span>
     </div>
-    <!-- <div class="searchbox search-form-submit">
-      <i class="iconfont js-toggle-search iconsearch icon-search">
-      </i>
-    </div> -->
     <div id="show-nav" class="showNav mobile-fit">
       <div class="line line1">
       </div>
@@ -211,20 +207,10 @@
               </li>
             
               <li>
-                <a href="/links/">
-                  <span class="faa-parent animated-hover">
-                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
-                    友情链接
-                  </span>
-                </a>
-                
-              </li>
-            
-              <li>
                 <a href="/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-book" aria-hidden="true"></i>
-                    接口使用
+                    API
                   </span>
                 </a>
                 
@@ -232,14 +218,14 @@
                     
                       <li>
                         <a href="/sentence/">
-                          <i class="fa fa-comment-dots" aria-hidden="true"></i>
+                          <i class="fa " aria-hidden="true"></i>
                           台词
                         </a>
                       </li>
                     
                       <li>
                         <a href="/wallpaper/">
-                          <i class="fa fa-images" aria-hidden="true"></i>
+                          <i class="fa " aria-hidden="true"></i>
                           壁纸
                         </a>
                       </li>
@@ -260,14 +246,14 @@
                     
                       <li>
                         <a href="/sentence/submit/">
-                          <i class="fa fa-comment-dots" aria-hidden="true"></i>
+                          <i class="fa " aria-hidden="true"></i>
                           台词
                         </a>
                       </li>
                     
                       <li>
                         <a href="/wallpaper/submit/">
-                          <i class="fa fa-images" aria-hidden="true"></i>
+                          <i class="fa " aria-hidden="true"></i>
                           壁纸
                         </a>
                       </li>
@@ -280,7 +266,37 @@
                 <a href="/thanks/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-heart" aria-hidden="true"></i>
-                    赞助
+                    鸣谢
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-money" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/statistics/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-table" aria-hidden="true"></i>
+                    统计
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友链
                   </span>
                 </a>
                 
@@ -313,64 +329,85 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 75px;">
+      <div class="headertop-down faa-float animated" onclick="headertop_down()">
+  <span>
+    <i class="fa fa-chevron-down" aria-hidden="true">
+    </i>
+  </span>
 </div>
+<div class="blank" style="padding-top: 0px;"></div>
 <div id="content" class="site-content">
-  <div id="main">
-    <header class="page-header">
-      <h1 class="cat-title">
-      归档</h1>
-      <span class="cat-des">
-        <p>
-        Archives</p>
-      </span>
-    </header>
-    <div id="main-part">
-      <article class="art">
-        <div class="art-main">
-          <div class="art-content">
-            <div id="archives">
-              <p style="text-align:right;">
-                [<span id="al_expand_collapse" style="cursor: s-resize;">
-                全部展开/收缩</span>
-              ]</p>
-              
-              
-              
-              
-              
-                
-                <h3 class="al_year">2021年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      01月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2021/01/08/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/">
-                          <span style="color:#0bf;">
-                          08日20:18:54</span>
-                          测试文章
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
-            </div>
-          </div>
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif; display:none;">
+      <i class="fa fa-envira" aria-hidden="true"></i>
+      Discovery</h1>
+      
+  <!-- 首页默认取最最新文章集 -->
+  
+    
+<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2021/01/19/%E7%AC%AC%E4%B8%80%E5%A4%A7%E7%89%88%E6%9C%ACapi%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yuri-test-backend.sunxiaochuan258.com/wallpaper?id=1">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2021-1-19 22:01</div>
+      <a href="/2021/01/19/%E7%AC%AC%E4%B8%80%E5%A4%A7%E7%89%88%E6%9C%ACapi%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90/" class="post-title">
+        <h3>第一大版本api开发基本完成</h3>
+      </a>
+      <br>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2021/01/19/%E7%AC%AC%E4%B8%80%E5%A4%A7%E7%89%88%E6%9C%ACapi%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
         </div>
-      </article>
+      </div>
     </div>
   </div>
+</article>
+  
+    
+<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2021/01/18/%E5%9F%9F%E5%90%8D%E6%8F%90%E4%BA%A4%E5%A4%87%E6%A1%88/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yuri-test-backend.sunxiaochuan258.com/wallpaper?id=2">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2021-1-18 20:01</div>
+      <a href="/2021/01/18/%E5%9F%9F%E5%90%8D%E6%8F%90%E4%BA%A4%E5%A4%87%E6%A1%88/" class="post-title">
+        <h3>域名提交备案</h3>
+      </a>
+      <br>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2021/01/18/%E5%9F%9F%E5%90%8D%E6%8F%90%E4%BA%A4%E5%A4%87%E6%A1%88/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+
+
+    </main>
+  </div>
+  
 </div>
 
     </div>    
@@ -396,32 +433,25 @@
             TAGS: '标签',
         },
         ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
+        // CONTENT_URL: '/content.json',
     };
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
-    <!-- <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2021 Yurikoto<br>
-      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer> -->
-<footer id="colophon" class="site-footer" role="contentinfo">
+    <footer id="colophon" class="site-footer" role="contentinfo">
   <div class="site-info">
     <div class="footertext">
       <div class="img-preload">
         <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
         <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
       </div>
-      <span style="color: #b9b9b9;">&copy 2021  &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://yurikoto.com"><img src="https://cdn.jsdelivr.net/gh/vanfantasy2333/images@master/logo/yurikoto.png" width="80px"/></a>   &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.tigerxly.com"><img src="https://cdn.jsdelivr.net/gh/vanfantasy2333/images@master/logo/tigerxly.png" width="80px"/></a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="ICP" href="http://www.beian.miit.gov.cn/" target="_blank" one-link-mark="yes">鄂ICP备20008559号-3</a></span>
+      <span style="color: #b9b9b9;">&copy 2021  <a target="_blank" rel="noopener" href="https://yurikoto.com">Yurikoto</a>&nbsp;&&nbsp;<a target="_blank" rel="noopener" href="https://www.tigerxly.com">tigerxly</a>&nbsp;&nbsp;<a id="ICP" href="http://www.beian.miit.gov.cn/" target="_blank" one-link-mark="yes">鄂ICP备20008559号-3</a></span><br>
+      <span style="color: #b9b9b9;"><a href="/infringment/">侵权申诉&nbsp;&nbsp;Infringment Complaint&nbsp;&nbsp;侵害の苦情</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.tigerxly.com/">本站作者主页</a></span><br>
+      <span style="color: #b9b9b9;"><a href="mailto:liyu@tigerxly.com"><i class="fa fa-envelope"></i> liyu@tigerxly.com</a>&nbsp;&nbsp;<a href="sms:+1(616)803-9307"><i class="fa fa-phone"></i>+1(616)803-9307</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://t.me/yurikoto_channel"><i class="fa fa-telegram"></i>@yurikoto_channel</a></span>
     </div>
     <div class="footer-device">
     <p style="font-family: 'Ubuntu', sans-serif;">
-        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Modified by <a href="https://www.tigerxly.com" target="_blank">van_fantasy</a>, Powered by Hexo</a>
         </span>
       </p>
     </div>
@@ -446,9 +476,9 @@
 <script type="text/javascript">
 /* <![CDATA[ */
 if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"2333.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
 } else {
-  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"2333.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
 }
 /* ]]> */
 
@@ -498,23 +528,10 @@ $(document).ready(function() {
       <div class="iconflat no-select" style="width: 50px; height: 50px;">
         <div class="icon"></div>
       </div>
-      <!-- <div class="site-branding search-form-submit">
-        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
-      </div> -->
     </div>
   </section>
   <div id="mo-nav" class="">
-  <!-- <div class="m-avatar">
-    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg">
-  </div> -->
   <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px; margin-top: 20px;">Yurikoto</p>
-  <!-- <p style="text-align: center; word-spacing: 20px;">
-    
-      
-        <a href="http://github.com/yurikoto" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
-      
-    
-  </p> -->
   <ul id="menu-new-1" class="menu">
     
       <li>
@@ -528,20 +545,10 @@ $(document).ready(function() {
       </li>
     
       <li>
-        <a href="/links/">
-          <span class="faa-parent animated-hover">
-            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
-            友情链接
-          </span>
-        </a>
-        
-      </li>
-    
-      <li>
         <a href="/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-book" aria-hidden="true"></i>
-            接口使用
+            API
           </span>
         </a>
         
@@ -549,14 +556,14 @@ $(document).ready(function() {
             
               <li>
                 <a href="/sentence/">
-                  <i class="fa fa-comment-dots" aria-hidden="true"></i>
+                  <i class="fa " aria-hidden="true"></i>
                   台词
                 </a>
               </li>
             
               <li>
                 <a href="/wallpaper/">
-                  <i class="fa fa-images" aria-hidden="true"></i>
+                  <i class="fa " aria-hidden="true"></i>
                   壁纸
                 </a>
               </li>
@@ -577,14 +584,14 @@ $(document).ready(function() {
             
               <li>
                 <a href="/sentence/submit/">
-                  <i class="fa fa-comment-dots" aria-hidden="true"></i>
+                  <i class="fa " aria-hidden="true"></i>
                   台词
                 </a>
               </li>
             
               <li>
                 <a href="/wallpaper/submit/">
-                  <i class="fa fa-images" aria-hidden="true"></i>
+                  <i class="fa " aria-hidden="true"></i>
                   壁纸
                 </a>
               </li>
@@ -597,7 +604,37 @@ $(document).ready(function() {
         <a href="/thanks/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-heart" aria-hidden="true"></i>
-            赞助
+            鸣谢
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-money" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/statistics/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-table" aria-hidden="true"></i>
+            统计
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友链
           </span>
         </a>
         

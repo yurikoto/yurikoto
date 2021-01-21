@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">台词接口 | Yurikoto</title>
+  <title itemprop="name">统计 | Yurikoto</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
@@ -337,212 +337,66 @@
       </div>
       <header class="pattern-header ">
         <h1 class="entry-title">
-        台词接口</h1>
+        统计</h1>
       </header>
     </div>
   
   <div id="content" class="site-content">
     <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      <h3 id="请求地址生成"><a href="#请求地址生成" class="headerlink" title="请求地址生成"></a>请求地址生成</h3>
+      <p>以下数据每5秒更新一次</p>
+
 <script>
     $(document).ready(function(){
-        $('input[type=radio][name=encode]').change(function(){
-            if(this.value == 'json'){
-                $('#request-link').val("https://v1.yurikoto.com/sentence");
-            }
-            else if(this.value == 'text'){
-                $('#request-link').val("https://v1.yurikoto.com/sentence?encode=text");
+        $.get("https://yuri-test-backend.sunxiaochuan258.com/statistic", function(data, status){
+            if(status == "success"){
+                try{
+                    data = JSON.parse(data);
+                    $("#count-sentence-requested").text(data.data.sentence.requested);
+                    $("#count-wallpaper-requested").text(data.data.wallpaper.requested);
+                    $("#count-sentence-uploaded").text(data.data.sentence.uploaded);
+                    $("#count-sentence-approved").text(data.data.sentence.approved);
+                    $("#count-wallpaper-approved").text(data.data.wallpaper.approved);
+                }catch(e){}
             }
         });
-        $('#request').bind('click', function(){
-            link = $('#request-link').val();
-            $.get(link, function(data, status){
+        setInterval(function(){
+            $.get("https://yuri-test-backend.sunxiaochuan258.com/statistic", function(data, status){
                 if(status == "success"){
-                    $("#request-result").val(data);
+                    try{
+                        data = JSON.parse(data);
+                        $("#count-sentence-requested").text(data.data.sentence.requested);
+                        $("#count-wallpaper-requested").text(data.data.wallpaper.requested);
+                        $("#count-sentence-uploaded").text(data.data.sentence.uploaded);
+                        $("#count-sentence-approved").text(data.data.sentence.approved);
+                        $("#count-wallpaper-approved").text(data.data.wallpaper.approved);
+                    }catch(e){}
                 }
             });
-        });
-        $('#copy').bind('click', function(){
-            link = $('#request-link').val();
-            copyToClip(link);
-        });
+        }, 5000);
     })
-
-    function copyToClip(content) {
-        var aux = document.createElement("input"); 
-        aux.setAttribute("value", content); 
-        document.body.appendChild(aux); 
-        aux.select();
-        document.execCommand("copy"); 
-        document.body.removeChild(aux);
-    }
 </script>
-<div class="radio-inline">
-    返回编码：&nbsp;
-    <label><input type="radio" name="encode" value="json" checked> json</label>&nbsp;&nbsp;
-    <label><input type="radio" name="encode" value="text"> 纯文本</label>
-</div>
-<div class="input-group">
-  <input type="text" id="request-link" class="form-control" placeholder="请求链接" aria-label="请求链接" aria-describedby="basic-addon2" value="https://v1.yurikoto.com/sentence" disabled="true">
-  <div class="input-group-append">
-    <button id="request" class="btn btn-light" type="button" title="请求"><i class="fa fa-chevron-right"></i></button>
-    <button id="copy" class="btn btn-light" type="button" title="复制"><i class="fa fa-clipboard"></i></button>
-  </div>
-</div>
-<textarea type="text" id="request-result" class="form-control" placeholder="请求结果将在此显示" rows="4" disabled="true"></textarea><br><br>
 
 
-<h3 id="请求地址"><a href="#请求地址" class="headerlink" title="请求地址"></a>请求地址</h3><p><code>https://v1.yurikoto.com/sentence</code></p>
-<h3 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h3><p>本站所有接口每个ip每分钟100次。</p>
-<h3 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h3>
+<h3 id="请求量统计"><a href="#请求量统计" class="headerlink" title="请求量统计"></a>请求量统计</h3>
 <table class="table table-striped">
 <thead>
 <tr>
-<th>参数</th>
-<th>可选</th>
-<th>说明</th>
-<th>默认值</th>
+<th>接口</th>
+<th>累计请求量</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>encode</td>
-<td>是</td>
-<td>返回编码</td>
-<td>json</td>
+<td>台词</td>
+<td><span id="count-sentence-requested"></span></td>
+</tr><tr>
+<td>壁纸</td>
+<td><span id="count-wallpaper-requested"></span></td>
 </tr>
 </tbody></table>
 
 
-<h4 id="返回编码"><a href="#返回编码" class="headerlink" title="返回编码"></a>返回编码</h4>
-<table class="table table-striped">
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>text</td>
-<td>返回纯文本（只返回正文）</td>
-</tr>
-<tr>
-<td>json</td>
-<td>返回json</td>
-</tr>
-</tbody></table><br>
+<h3 id="资源数统计"><a href="#资源数统计" class="headerlink" title="资源数统计"></a>资源数统计</h3><p>截至目前，收到<span id="count-sentence-uploaded"></span>条台词投稿，审核通过入库<span id="count-sentence-approved"></span>条；库中有壁纸<span id="count-wallpaper-approved"></span>张。</p>
 
-
-
-
-
-
-<h3 id="返回格式"><a href="#返回格式" class="headerlink" title="返回格式"></a>返回格式</h3>
-<table class="table table-striped">
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>status</td>
-<td>状态</td>
-</tr>
-<tr>
-<td>id</td>
-<td>台词编号</td>
-</tr>
-<tr>
-<td>content</td>
-<td>台词正文（utf-8）</td>
-</tr>
-<tr>
-<td>source</td>
-<td>台词来源</td>
-</tr>
-</tbody></table>
-
-
-<h4 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h4>
-<table class="table table-striped">
-<thead>
-<tr>
-<th>参数</th>
-<th>状态码</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>success</td>
-<td>200</td>
-<td>成功</td>
-</tr>
-<tr>
-<td>failed</td>
-<td>400</td>
-<td>未知错误</td>
-</tr>
-<tr>
-<td>failed</td>
-<td>403</td>
-<td>非法访问</td>
-</tr>
-<tr>
-<td>failed</td>
-<td>404</td>
-<td>接口不存在</td>
-</tr>
-<tr>
-<td>failed</td>
-<td>429</td>
-<td>请求频率过高</td>
-</tr>
-<tr>
-<td>failed</td>
-<td>500</td>
-<td>服务端发生错误</td>
-</tr>
-</tbody></table><br>
-
-
-
-
-<h3 id="使用例"><a href="#使用例" class="headerlink" title="使用例"></a>使用例</h3><p>结合typed.js使用（本站首页实现）</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">var source;
-var prefix &#x3D; &quot;From: &quot;;
-$.get(&quot;https:&#x2F;&#x2F;v1.yurikoto.com&#x2F;sentence&quot;, function(data, status)&#123;
-    try&#123;
-        data &#x3D; JSON.parse(data);
-        source &#x3D; prefix + data.source;
-    &#125;
-    catch(e)&#123;&#125;;
-    if(status &#x3D;&#x3D; &quot;success&quot;)&#123;
-        $(&quot;#source&quot;).text(source);
-        var typed &#x3D; new Typed(&quot;#sentence&quot;, &#123;
-            strings: [data.content],
-            startDelay: 300,
-            typeSpeed: 100,
-            loop: true,
-            backSpeed: 50,
-            showCursor: true,
-            onComplete: function(self)&#123;
-                $.get(&quot;https:&#x2F;&#x2F;v1.yurikoto.com&#x2F;sentence&quot;, function(data, status)&#123;
-                    if(status &#x3D;&#x3D; &quot;success&quot;)&#123;
-                        try&#123;
-                            data &#x3D; JSON.parse(data);
-                            source &#x3D; prefix + data.source;
-                        &#125;
-                        catch(e)&#123;&#125;;
-                        self.strings[0] &#x3D; data.content;
-                    &#125;
-                &#125;);
-            &#125;,
-            onLastStringBackspaced: function(self)&#123;
-                $(&quot;#source&quot;).text(source);
-            &#125;
-        &#125;);
-    &#125;
-&#125;);</code></pre>
     </article>
   </div><!-- #primary -->
 </div>

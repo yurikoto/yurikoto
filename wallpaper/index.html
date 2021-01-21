@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">台词接口 | Yurikoto</title>
+  <title itemprop="name">壁纸接口 | Yurikoto</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
@@ -337,7 +337,7 @@
       </div>
       <header class="pattern-header ">
         <h1 class="entry-title">
-        台词接口</h1>
+        壁纸接口</h1>
       </header>
     </div>
   
@@ -346,28 +346,56 @@
       <h3 id="请求地址生成"><a href="#请求地址生成" class="headerlink" title="请求地址生成"></a>请求地址生成</h3>
 <script>
     $(document).ready(function(){
+        var encode = 'redirect';
+        var type = 'all';
         $('input[type=radio][name=encode]').change(function(){
-            if(this.value == 'json'){
-                $('#request-link').val("https://v1.yurikoto.com/sentence");
-            }
-            else if(this.value == 'text'){
-                $('#request-link').val("https://v1.yurikoto.com/sentence?encode=text");
-            }
+            encode = this.value;
+            generate();
+        });
+        $('input[type=radio][name=type]').change(function(){
+            type = this.value;
+            generate();
         });
         $('#request').bind('click', function(){
             link = $('#request-link').val();
-            $.get(link, function(data, status){
-                if(status == "success"){
-                    $("#request-result").val(data);
-                }
-            });
+            if(encode == "redirect"){
+                window.open(link);
+            }
+            else{
+                $.get(link, function(data, status){
+                    if(status == "success"){
+                        $("#request-result").val(data);
+                    }
+                });
+            }
+            
         });
         $('#copy').bind('click', function(){
             link = $('#request-link').val();
             copyToClip(link);
         });
-    })
-
+        function generate(){
+            if(encode == "redirect" && type == "all"){
+                $('#request-link').val("https://v1.yurikoto.com/wallpaper");
+            }else if(encode == "redirect" && type == "day"){
+                $('#request-link').val("https://v1.yurikoto.com/wallpaper?type=day");
+            }else if(encode == "redirect" && type == "night"){
+                $('#request-link').val("https://v1.yurikoto.com/wallpaper?type=night");
+            }else if(encode == "json" && type == "all"){
+                $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=json");
+            }else if(encode == "json" && type == "day"){
+                $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=json&type=day");
+            }else if(encode == "json" && type == "night"){
+                $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=json&type=night");
+            }else if(encode == "text" && type == "all"){
+                $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=text");
+            }else if(encode == "text" && type == "day"){
+                $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=text&type=day");
+            }else if(encode == "text" && type == "night"){
+                $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=text&type=night");
+            }
+        }
+    });
     function copyToClip(content) {
         var aux = document.createElement("input"); 
         aux.setAttribute("value", content); 
@@ -379,20 +407,28 @@
 </script>
 <div class="radio-inline">
     返回编码：&nbsp;
-    <label><input type="radio" name="encode" value="json" checked> json</label>&nbsp;&nbsp;
+    <label><input type="radio" name="encode" value="redirect" checked> 重定向</label>&nbsp;&nbsp;
+    <label><input type="radio" name="encode" value="json"> json</label>&nbsp;&nbsp;
     <label><input type="radio" name="encode" value="text"> 纯文本</label>
 </div>
+<div class="radio-inline">
+    壁纸类型：&nbsp;
+    <label><input type="radio" name="type" value="all" checked> 全部</label>&nbsp;&nbsp;
+    <label><input type="radio" name="type" value="day"> 白天</label>&nbsp;&nbsp;
+    <label><input type="radio" name="type" value="night"> 夜晚</label>
+</div>
 <div class="input-group">
-  <input type="text" id="request-link" class="form-control" placeholder="请求链接" aria-label="请求链接" aria-describedby="basic-addon2" value="https://v1.yurikoto.com/sentence" disabled="true">
+  <input type="text" id="request-link" class="form-control" placeholder="请求链接" aria-label="请求链接" aria-describedby="basic-addon2" value="https://v1.yurikoto.com/wallpaper" disabled="true">
   <div class="input-group-append">
     <button id="request" class="btn btn-light" type="button" title="请求"><i class="fa fa-chevron-right"></i></button>
     <button id="copy" class="btn btn-light" type="button" title="复制"><i class="fa fa-clipboard"></i></button>
   </div>
 </div>
-<textarea type="text" id="request-result" class="form-control" placeholder="请求结果将在此显示" rows="4" disabled="true"></textarea><br><br>
+<textarea type="text" id="request-result" class="form-control" placeholder="请求结果将在此显示" rows="4" disabled="true"></textarea>
+<br><br>
 
 
-<h3 id="请求地址"><a href="#请求地址" class="headerlink" title="请求地址"></a>请求地址</h3><p><code>https://v1.yurikoto.com/sentence</code></p>
+<h3 id="请求地址"><a href="#请求地址" class="headerlink" title="请求地址"></a>请求地址</h3><p><code>https://v1.yurikoto.com/wallpaper</code></p>
 <h3 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h3><p>本站所有接口每个ip每分钟100次。</p>
 <h3 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h3>
 <table class="table table-striped">
@@ -408,7 +444,13 @@
 <td>encode</td>
 <td>是</td>
 <td>返回编码</td>
-<td>json</td>
+<td>见下文</td>
+</tr>
+<tr>
+<td>type</td>
+<td>是</td>
+<td>壁纸类型</td>
+<td>all</td>
 </tr>
 </tbody></table>
 
@@ -422,12 +464,37 @@
 </tr>
 </thead>
 <tbody><tr>
+<td>默认</td>
+<td>直接重定向到图片</td>
+</tr><tr>
 <td>text</td>
-<td>返回纯文本（只返回正文）</td>
+<td>返回纯文本（只返回链接）</td>
 </tr>
 <tr>
 <td>json</td>
 <td>返回json</td>
+</tr>
+</tbody></table>
+
+
+<h4 id="壁纸类型"><a href="#壁纸类型" class="headerlink" title="壁纸类型"></a>壁纸类型</h4>
+<table class="table table-striped">
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>all</td>
+<td>获取随机壁纸</td>
+</tr><tr>
+<td>day</td>
+<td>获取白天模式壁纸</td>
+</tr>
+<tr>
+<td>night</td>
+<td>获取夜晚模式壁纸</td>
 </tr>
 </tbody></table><br>
 
@@ -450,15 +517,15 @@
 </tr>
 <tr>
 <td>id</td>
-<td>台词编号</td>
+<td>壁纸编号</td>
 </tr>
 <tr>
-<td>content</td>
-<td>台词正文（utf-8）</td>
+<td>link</td>
+<td>壁纸链接</td>
 </tr>
 <tr>
-<td>source</td>
-<td>台词来源</td>
+<td>type</td>
+<td>壁纸类型</td>
 </tr>
 </tbody></table>
 
@@ -505,44 +572,6 @@
 </tbody></table><br>
 
 
-
-
-<h3 id="使用例"><a href="#使用例" class="headerlink" title="使用例"></a>使用例</h3><p>结合typed.js使用（本站首页实现）</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">var source;
-var prefix &#x3D; &quot;From: &quot;;
-$.get(&quot;https:&#x2F;&#x2F;v1.yurikoto.com&#x2F;sentence&quot;, function(data, status)&#123;
-    try&#123;
-        data &#x3D; JSON.parse(data);
-        source &#x3D; prefix + data.source;
-    &#125;
-    catch(e)&#123;&#125;;
-    if(status &#x3D;&#x3D; &quot;success&quot;)&#123;
-        $(&quot;#source&quot;).text(source);
-        var typed &#x3D; new Typed(&quot;#sentence&quot;, &#123;
-            strings: [data.content],
-            startDelay: 300,
-            typeSpeed: 100,
-            loop: true,
-            backSpeed: 50,
-            showCursor: true,
-            onComplete: function(self)&#123;
-                $.get(&quot;https:&#x2F;&#x2F;v1.yurikoto.com&#x2F;sentence&quot;, function(data, status)&#123;
-                    if(status &#x3D;&#x3D; &quot;success&quot;)&#123;
-                        try&#123;
-                            data &#x3D; JSON.parse(data);
-                            source &#x3D; prefix + data.source;
-                        &#125;
-                        catch(e)&#123;&#125;;
-                        self.strings[0] &#x3D; data.content;
-                    &#125;
-                &#125;);
-            &#125;,
-            onLastStringBackspaced: function(self)&#123;
-                $(&quot;#source&quot;).text(source);
-            &#125;
-        &#125;);
-    &#125;
-&#125;);</code></pre>
     </article>
   </div><!-- #primary -->
 </div>
