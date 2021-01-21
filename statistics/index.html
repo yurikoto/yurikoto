@@ -343,7 +343,7 @@
   
   <div id="content" class="site-content">
     <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      <p>以下数据每5秒更新一次</p>
+      <p>以下数据为您打开本页面时的数据</p>
 
 <script>
     $(document).ready(function(){
@@ -359,7 +359,7 @@
                 }catch(e){}
             }
         });
-        setInterval(function(){
+        // setInterval(function(){
             $.get("https://yuri-test-backend.sunxiaochuan258.com/statistic", function(data, status){
                 if(status == "success"){
                     try{
@@ -372,7 +372,7 @@
                     }catch(e){}
                 }
             });
-        }, 5000);
+        // }, 5000);
     })
 </script>
 
