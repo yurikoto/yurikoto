@@ -121,7 +121,7 @@ function sentence_submit(){
             // console.log(window.visitorId);
             $.ajax({
                 type: "POST",
-                url: "https://yuri-test-submit.sunxiaochuan258.com/sentence",
+                url: "https://submit-v1.yurikoto.com/sentence",
                 data: data,
                 dataType: "json",
                 success: function(r){
@@ -347,7 +347,7 @@ function generate(encode, type){
 
 // 请求量统计
 function get_statistics(){
-    $.get("https://yuri-test-backend.sunxiaochuan258.com/statistic", function(data, status){
+    $.get("https://v1.yurikoto.com/statistic", function(data, status){
         if(status == "success"){
             try{
                 data = JSON.parse(data);
@@ -356,18 +356,7 @@ function get_statistics(){
                 $("#count-sentence-uploaded").text(data.data.sentence.uploaded);
                 $("#count-sentence-approved").text(data.data.sentence.approved);
                 $("#count-wallpaper-approved").text(data.data.wallpaper.approved);
-            }catch(e){}
-        }
-    });
-    $.get("https://yuri-test-backend.sunxiaochuan258.com/statistic", function(data, status){
-        if(status == "success"){
-            try{
-                data = JSON.parse(data);
-                $("#count-sentence-requested").text(data.data.sentence.requested);
-                $("#count-wallpaper-requested").text(data.data.wallpaper.requested);
-                $("#count-sentence-uploaded").text(data.data.sentence.uploaded);
-                $("#count-sentence-approved").text(data.data.sentence.approved);
-                $("#count-wallpaper-approved").text(data.data.wallpaper.approved);
+                $("#count-site-served").text(data.data.other.site_served);
             }catch(e){}
         }
     });
@@ -390,7 +379,7 @@ function initFingerprintJS() {
 function show_sentence(){
     var source;
     var prefix = "From: ";
-    $.get("https://yuri-test-backend.sunxiaochuan258.com/sentence", function(data, status){
+    $.get("https://v1.yurikoto.com/sentence", function(data, status){
         try{
             data = JSON.parse(data);
             source = prefix + data.source;
@@ -401,25 +390,25 @@ function show_sentence(){
             var typed = new Typed("#sentence", {
                 strings: [data.content],
                 startDelay: 300,
-                typeSpeed: 150,
-                backDelay: 5000,
+                typeSpeed: 180,
+                backDelay: 8000,
                 loop: true,
                 backSpeed: 50,
                 showCursor: true,
                 onComplete: function(self){
-                $.get("https://yuri-test-backend.sunxiaochuan258.com/sentence", function(data, status){
-                    if(status == "success"){
-                    try{
-                        data = JSON.parse(data);
-                        source = prefix + data.source;
-                    }
-                    catch(e){};
-                    self.strings[0] = data.content;
-                    }
-                });
+                    $.get("https://v1.yurikoto.com/sentence", function(data, status){
+                            if(status == "success"){
+                            try{
+                                data = JSON.parse(data);
+                                source = prefix + data.source;
+                            }
+                            catch(e){};
+                            self.strings[0] = data.content;
+                        }
+                    });
                 },
                 onLastStringBackspaced: function(self){
-                $("#source").text(source);
+                    $("#source").text(source);
                 }
             });
         }

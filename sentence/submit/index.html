@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="百合主题台词、壁纸API。您可在本站欣赏橘里橘气美图美句，也可以免费调用我们提供的API。">
+  <meta name="keywords" content="百合, yuri, 动漫, 橘里橘气, 台词, 壁纸, API, 开发者, 开源, 接口, 二次元">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
   <script src="/js/yurikoto-app.js"></script>
   
-  <title itemprop="name">台词投稿 | Yurikoto</title>
+  <title itemprop="name">台词投稿 | Yurikoto橘语网</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/yurikoto.css">
@@ -25,7 +27,6 @@
     onload="initFingerprintJS()"
   ></script>
   <script src="https://v.vaptcha.com/v3.js"></script>
-  <script src="/js/sentence.js"></script>
   <link href="https://cdn.jsdelivr.net/gh/vanfantasy2333/prism-pink@master/prism.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/gh/vanfantasy2333/prism-pink@master/prism.js"></script>
 
@@ -57,8 +58,8 @@
   mashiro_option.email_name = "";
   mashiro_option.cookie_version_control = "";
   mashiro_option.qzone_autocomplete = false;
-  mashiro_option.site_name = "Yurikoto";
-  mashiro_option.author_name = "";
+  mashiro_option.site_name = "YurikotoYurikoto橘语网";
+  mashiro_option.author_name = "Yurikoto橘语网";
   mashiro_option.site_url = "https://yuri-test.sunxiaochuan258.com";
   mashiro_option.v_appId = "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz";
   mashiro_option.v_appKey = "mgOpfzbkHYqU92CV4IDlAUHQ";
@@ -71,7 +72,7 @@
   /*End of Initial Variables*/
   </script>
   <script type="text/javascript">
-  var bg = "https://yuri-test-backend.sunxiaochuan258.com/wallpaper".split(",");
+  var bg = "https://v1.yurikoto.com/wallpaper,https://v1.yurikoto.com/wallpaper?id=233".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -102,14 +103,7 @@
     </div>
   </figure>
   <div id="video-container" style="display:none">
-    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
-    </video>
-    <div id="video-btn" class="loadvideo videolive">
-    </div>
-    <div id="video-add">
-    </div>
-    <div class="video-stu">
-    </div>
+    <div id="bgvideo" class="video" style="object-fit: fill"></div>
   </div>
 </div>
     <div id="page" class="site wrapper">
@@ -148,7 +142,7 @@
               </li>
             
               <li>
-                <a href="/">
+                <a href="/api/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-book" aria-hidden="true"></i>
                     API
@@ -176,7 +170,7 @@
               </li>
             
               <li>
-                <a href="/">
+                <a href="/upload/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-upload" aria-hidden="true"></i>
                     投稿
@@ -254,10 +248,10 @@
               </li>
             
               <li>
-                <a target="_blank" rel="noopener" href="https://github.com/yurikoto">
+                <a href="/opensource/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-github" aria-hidden="true"></i>
-                    Github
+                    开源
                   </span>
                 </a>
                 
@@ -274,7 +268,7 @@
   
     <div class="pattern-center ">
       <div class="pattern-attachment-img">
-        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yuri-test-backend.sunxiaochuan258.com/wallpaper" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://v1.yurikoto.com/wallpaper" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
       </div>
       <header class="pattern-header ">
         <h1 class="entry-title">
@@ -284,13 +278,14 @@
   
   <div id="content" class="site-content">
     <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      <p>欢迎您进行台词投稿。</p>
+      <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>调用本站服务或在本站进行投稿，代表您已仔细阅读并同意<a href="/protocol/"><strong>使用条款</strong></a>。</p>
+<p>欢迎您进行台词投稿。</p>
 <p>您可以投稿各种百合作品中感动您的、让您产生思考的台词，也可以投稿您自己写的一段话，中、英、日文均可，字数上限50。</p>
-<p>投稿成功后，您的稿件将在人工审核后上线。通常，稿件上线后无法删除、修改，如果您执意删除、修改，请将您的投稿证明发送邮件至<a href="mailto:&#108;&#x69;&#121;&#117;&#64;&#x74;&#x69;&#x67;&#101;&#x72;&#120;&#x6c;&#121;&#46;&#99;&#x6f;&#109;">&#108;&#x69;&#121;&#117;&#64;&#x74;&#x69;&#x67;&#101;&#x72;&#120;&#x6c;&#121;&#46;&#99;&#x6f;&#109;</a>。</p>
+<p>投稿成功后，您的稿件将在人工审核后上线。通常，稿件上线后无法删除、修改，如果您执意删除、修改，请将您的投稿证明发送邮件至<a href="mailto:&#x6c;&#x69;&#121;&#x75;&#x40;&#116;&#105;&#x67;&#x65;&#x72;&#x78;&#108;&#121;&#46;&#99;&#111;&#109;">&#x6c;&#x69;&#121;&#x75;&#x40;&#116;&#105;&#x67;&#x65;&#x72;&#x78;&#108;&#121;&#46;&#99;&#111;&#109;</a>。</p>
 <p>如果您填写了邮箱，我们将在稿件状态更新时通知您。</p>
 <p>请在“出处”一栏填写作品名或作者名，如果您投稿的是原创台词请填写您的称呼。</p>
 <p>投稿内容必须与百合或百合作品相关，不能包含性暗示等违规内容，如果您多次进行严重违规投稿，系统或人工将禁用您的ip或客户端的投稿功能。</p>
-<p>如果您想要大量投稿，欢迎发送邮件至<a href="mailto:&#108;&#x69;&#x79;&#x75;&#x40;&#116;&#105;&#103;&#x65;&#x72;&#120;&#108;&#x79;&#46;&#x63;&#x6f;&#x6d;">&#108;&#x69;&#x79;&#x75;&#x40;&#116;&#105;&#103;&#x65;&#x72;&#120;&#108;&#x79;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<p>如果您想要大量投稿，欢迎发送邮件至<a href="mailto:&#x6c;&#x69;&#x79;&#117;&#x40;&#116;&#x69;&#x67;&#x65;&#x72;&#x78;&#108;&#121;&#x2e;&#99;&#111;&#109;">&#x6c;&#x69;&#x79;&#117;&#x40;&#116;&#x69;&#x67;&#x65;&#x72;&#x78;&#108;&#121;&#x2e;&#99;&#111;&#109;</a></p>
 <p>感谢您为Yurikoto做贡献！</p>
 
 <br>
@@ -381,7 +376,14 @@ if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
 }
 /* ]]> */
 </script>
-
+<style>
+  .site-top .lower nav{display:block !important;}
+  .author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,
+  .float-content i:hover{color:#FE9600}
+  .feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}
+  .comments .comments-hidden{display:none !important;
+  background-position:center center;background-attachment:inherit;}
+</style>
     <div class="openNav no-select" style="height: 50px;">
       <div class="iconflat no-select" style="width: 50px; height: 50px;">
         <div class="icon"></div>
@@ -389,7 +391,7 @@ if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
     </div>
   </section>
   <div id="mo-nav" class="">
-  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px; margin-top: 20px;">Yurikoto</p>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px; margin-top: 20px;">YurikotoYurikoto橘语网</p>
   <ul id="menu-new-1" class="menu">
     
       <li>
@@ -403,7 +405,7 @@ if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
       </li>
     
       <li>
-        <a href="/">
+        <a href="/api/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-book" aria-hidden="true"></i>
             API
@@ -431,7 +433,7 @@ if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
       </li>
     
       <li>
-        <a href="/">
+        <a href="/upload/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-upload" aria-hidden="true"></i>
             投稿
@@ -509,10 +511,10 @@ if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
       </li>
     
       <li>
-        <a target="_blank" rel="noopener" href="https://github.com/yurikoto">
+        <a href="/opensource/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-github" aria-hidden="true"></i>
-            Github
+            开源
           </span>
         </a>
         

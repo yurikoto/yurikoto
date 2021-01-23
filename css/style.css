@@ -974,7 +974,7 @@ table {
     margin:0 0 1.5em;
     width:100%
 }
-button,input[type="button"],input[type="reset"],input[type="submit"] {
+/* button,input[type="button"],input[type="reset"],input[type="submit"] {
     border:1px solid;
     border-color:#ccc #ccc #bbb;
     border-radius:3px;
@@ -985,7 +985,7 @@ button,input[type="button"],input[type="reset"],input[type="submit"] {
     font-size:.75rem;
     line-height:1;
     padding:.6em 1em .4em
-}
+} */
 button:hover,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover {
     /*border-color:#ccc #bbb #aaa;*/
     /*box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 0 15px 17px rgba(255,255,255,.8),inset 0 -5px 12px rgba(0,0,0,.02)*/
