@@ -14,9 +14,9 @@ https://yurikoto.com
 
 ## 联系
 
-**telegram频道：**https://t.me/yurikoto_channel
-**telegram群：**待建
-**QQ群：**待建
+telegram频道：https://t.me/yurikoto_channel
+telegram群：待建
+QQ群：待建
 
 ## 实现
 主页采用Hexo静态页面生成器并对Sakura主题一通爆改；当前API使用原生PHP编写。主页部署在githubpages，API部署在某大型IDC的成都数据中心。全站付费CDN加速。
