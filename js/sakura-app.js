@@ -1565,7 +1565,7 @@ $(function () {
       Prism.highlightAll();
       $(".site-content").find("img").addClass("zommify lazyload");
       // zoomifyInit();
-      repocardInit();
+      // repocardInit();
     }).on('submit', '.search-form,.s-search', function (event) {
       event.preventDefault()
       $.pjax.submit(event, '#page', {
