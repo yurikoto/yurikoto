@@ -303,6 +303,7 @@
 <li>本站提供的所有内容均来源网络、本人创作和用户投稿。如有错漏，请邮件<a href="mailto:liyu@tigerxly.com">联系我们</a>。如有侵权，请<a href="/infringment/">访问这里</a>。</li>
 <li>本站提供的服务开放调用，不代表本站及其所有者赞成调用本站服务的服务上的内容或立场。</li>
 <li>本站会尽可能维护服务的稳定性、可靠性，但不作任何保证。若因本站服务不可用给您带来了损失，本站概不负责。</li>
+<li>如果您因违规使用Yurikoto源码及资源产生的任何与第三方的纠纷，Yurikoto概不负责。</li>
 </ol>
 <h3 id="七、隐私声明"><a href="#七、隐私声明" class="headerlink" title="七、隐私声明"></a>七、隐私声明</h3><ol>
 <li>本站会收集用户的ip、浏览器canvas指纹等公开数据以进行黑名单管理，但不会对外公开。合法用户的数据使用完毕后本站会自动永久删除，不作记录。但本站保留记录非法用户的信息并向有关部门汇报的权利。</li>
@@ -324,6 +325,7 @@
 <h5 id="服务端可以调用吗？"><a href="#服务端可以调用吗？" class="headerlink" title="服务端可以调用吗？"></a>服务端可以调用吗？</h5><p>可以，但不建议调用。首先您需要正确设置HTTP报文头；您也需要注意，服务端调用时，本站获取到的是服务端ip。如果您的服务访问量较大，可能会很容易超出限制导致您的服务不稳定。</p>
 <h5 id="项目是否开源？"><a href="#项目是否开源？" class="headerlink" title="项目是否开源？"></a>项目是否开源？</h5><p>除了后台管理系统、源站校验模块等敏感部分，其他全部开源。敏感部分在版本迭代后，旧版本将开源。<a href="/opensource/">详见这里</a>。</p>
 <h5 id="商业网站可以调用吗？"><a href="#商业网站可以调用吗？" class="headerlink" title="商业网站可以调用吗？"></a>商业网站可以调用吗？</h5><p>不可以，除非您提供本站用到的所有资源的商用许可。</p>
+<h5 id="你们限制太多了，我想自由使用，怎么办？"><a href="#你们限制太多了，我想自由使用，怎么办？" class="headerlink" title="你们限制太多了，我想自由使用，怎么办？"></a>你们限制太多了，我想自由使用，怎么办？</h5><p>您可以自部署API来突破限制。请注意，自部署后不代表您可以为所欲为，您需要遵循AGPL-3.0开源协议，且本站提供的台词、壁纸资源不可商用。如果您因违规使用Yurikoto源码及资源产生的任何与第三方的纠纷，Yurikoto概不负责。</p>
 
     </article>
   </div><!-- #primary -->
@@ -333,7 +335,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -345,10 +347,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         // CONTENT_URL: '/content.json',
