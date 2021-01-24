@@ -137,7 +137,6 @@ function sentence_submit(){
                     }, 5000)
                     $('#sentence-content').val(""),
                     $('#sentence-source').val(""),
-                    $('#sentence-email').val(""),
                     text_length = $('#sentence-content').val().length;
                     text_remaining = window.text_max - text_length;
                     $('#count-message').html(text_length + ' / ' + text_max);
