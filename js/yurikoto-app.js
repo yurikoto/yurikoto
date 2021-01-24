@@ -134,10 +134,10 @@ function sentence_submit(){
                     // $("#sentence-submit-info").fadeIn();
                     setTimeout(function () {
                         $("#sentence-submit-info").fadeOut();
-                    }, 5000)
-                    $('#sentence-content').val(""),
-                    $('#sentence-source').val(""),
-                    $('#sentence-email').val(""),
+                    }, 5000);
+                    $('#sentence-content').val("");
+                    $('#sentence-source').val("");
+                    // $('#sentence-email').val(""),
                     text_length = $('#sentence-content').val().length;
                     text_remaining = window.text_max - text_length;
                     $('#count-message').html(text_length + ' / ' + text_max);
