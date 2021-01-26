@@ -1520,6 +1520,7 @@ var home = location.href,
     }
   }
 $(function () {
+  Siren.TOC()
   Siren.AH()
   Siren.PE()
   Siren.NH()
