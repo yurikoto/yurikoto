@@ -313,7 +313,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -325,10 +325,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         // CONTENT_URL: '/content.json',
@@ -351,7 +351,7 @@
     <p style="font-family: 'Ubuntu', sans-serif;">
         <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Modified by <a href="https://www.tigerxly.com" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);" target="_blank">van_fantasy</a>, Powered by Hexo</a>
         </span><br>
-        <span style="color: #b9b9b9;"><a id="ICP" href="http://beian.miit.gov.cn/" target="_blank" one-link-mark="yes">鄂ICP备20008559号-3</a>&nbsp;&nbsp;<a href="https://icp.gov.moe" target="_blank">萌国 </a><a href="https://icp.gov.moe/?keyword=20210001" target="_blank"> 20213417号</a></span>
+        <span style="color: #b9b9b9;"><a id="ICP" href="http://beian.miit.gov.cn/" target="_blank" one-link-mark="yes">鄂ICP备20008559号-3</a>&nbsp;&nbsp;<a href="https://icp.gov.moe" target="_blank">萌国 </a><a href="https://icp.gov.moe/?keyword=20210001" target="_blank"> 20213417号</a>&nbsp;&nbsp;<a href="javascript:void(0)" id="switch-sakura-fall">关闭飘落</a></span>
       </p>
     </div>
   </div><!-- .site-info -->
@@ -365,9 +365,11 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/zoom.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/sakura-app.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/botui.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/sakura-fall.js"></script>
 <script type="text/javascript">
 /* <![CDATA[ */
 if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  $('#canvas_sakura').hide();
   var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"2333.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
 } else {
   var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"2333.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
