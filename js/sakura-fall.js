@@ -128,6 +128,7 @@ function startSakura() {
     canvas.setAttribute('id', 'canvas_sakura');
     document.getElementsByTagName('body')[0].appendChild(canvas);
     cxt = canvas.getContext('2d');
+    cxt.globalAlpha = 0.45;
     var sakuraList = new SakuraList();
     for (var i = 0; i < 40; i++) {
         var sakura, randomX, randomY, randomS, randomR, randomFnx, randomFny;
@@ -176,6 +177,10 @@ function stopp() {
 
 $(document).ready(function(){
     startSakura();
+    if(mobileCheck()){
+        $('#canvas_sakura').hide();
+        $('#switch-sakura-fall').text('开启飘落');
+    }
     $('#switch-sakura-fall').on('click', function(){
         if($('#switch-sakura-fall').text() == '关闭飘落'){
             $('#canvas_sakura').fadeOut();

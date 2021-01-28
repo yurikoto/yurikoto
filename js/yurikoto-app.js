@@ -1,14 +1,15 @@
 $(document).ready(function(){
     //控制台绘画
     console.log("%c##    ## ##     ## ########  #### ##    ##  #######  ########  #######  \n ##  ##  ##     ## ##     ##  ##  ##   ##  ##     ##    ##    ##     ## \n  ####   ##     ## ##     ##  ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ########   ##  #####    ##     ##    ##    ##     ## \n   ##    ##     ## ##   ##    ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ##    ##   ##  ##   ##  ##     ##    ##    ##     ## \n   ##     #######  ##     ## #### ##    ##  #######     ##     #######  ", "color: #fc8217");
-    console.log("%c     Ver 1.0.1  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
+    console.log("%c     Ver 1.0.2  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
     //移动端主页优化
     if(mobileCheck()){
         console.log("检测到您正在手机端浏览，已为您进行必要的UI优化。");
+        $('#change-wallpaper').remove();
         $("#sentence-container").css("font-size", "22px");
         $("#sentence-container").css("line-height", "24px");
         $("#source").css("font-size", "17px");
-      }
+    }
 });
 
 window.mobileCheck = function() {
@@ -375,10 +376,31 @@ function initFingerprintJS() {
     });
   }
 
+function convertImgToBase64(url, callback, outputFormat){
+    var canvas = document.createElement('CANVAS'),
+    ctx = canvas.getContext('2d'),
+    img = new Image;
+    img.crossOrigin = 'Anonymous';
+    img.onload = function(){
+        canvas.height = img.height;
+        canvas.width = img.width;
+        ctx.drawImage(img,0,0);
+        var dataURL = canvas.toDataURL(outputFormat || 'image/png');
+        callback.call(this, dataURL);
+        canvas = null; 
+    };
+    img.src = url;
+}
+
+window.wallpaper_change_flag = false; //换壁纸标志
+
 // 首页句子
 function show_sentence(){
+    // var sentence_cnt = 0; //句子计数
+    // var wallpaper_change_flag = false; //换壁纸标志
     var source;
     var prefix = "From: ";
+    var wallpaper_link;
     $.get("https://v1.yurikoto.com/sentence", function(data, status){
         try{
             data = JSON.parse(data);
@@ -386,6 +408,7 @@ function show_sentence(){
         }
         catch(e){};
         if(status == "success"){
+
             $("#source").text(source);
             var typed = new Typed("#sentence", {
                 strings: [data.content],
@@ -395,22 +418,92 @@ function show_sentence(){
                 loop: true,
                 backSpeed: 50,
                 showCursor: true,
+                onBegin: function(self){
+                    setTimeout(function(){
+                        $('#change-wallpaper').removeAttr('disabled');
+                        $('#change-wallpaper').fadeIn(600);
+                        self.startDelay = 700;
+                    }, self.startDelay);
+                },
                 onComplete: function(self){
-                    $.get("https://v1.yurikoto.com/sentence", function(data, status){
+                    setTimeout(() => {
+                        $('#change-wallpaper').attr('disabled', true);
+                        $('#change-wallpaper').fadeOut(600);
+                        // sentence_cnt++;
+                        // if(sentence_cnt % 2 == 0){
+                        //     sentence_cnt = 0;
+                        //     wallpaper_change_flag = true;
+                        // }
+                        // else{
+                        //     wallpaper_change_flag = false;
+                        //     self.startDelay = 700;
+                        // }
+                        $.get("https://v1.yurikoto.com/sentence", function(data, status){
                             if(status == "success"){
-                            try{
-                                data = JSON.parse(data);
-                                source = prefix + data.source;
+                                try{
+                                    data = JSON.parse(data);
+                                    source = prefix + data.source;
+                                }
+                                catch(e){};
+                                self.strings[0] = data.content;
+                                if(wallpaper_change_flag){
+                                    $.get("https://v1.yurikoto.com/wallpaper?encode=text", function(data, status){
+                                        if(status == "success"){
+                                            // convertImgToBase64(data, function(base64Img){
+                                            //     //转化后的base64
+                                            //     wallpaper_base64 = base64Img;
+                                            // });
+                                            wallpaper_link = data;
+                                            img = new Image();
+                                            img.src = wallpaper_link;
+                                            img.onload = function(){};
+                                        }
+                                    });
+                                    // convertImgToBase64("https://v1.yurikoto.com/wallpaper", function(base64Img){
+                                    //     //转化后的base64
+                                    //     wallpaper_base64 = base64Img;
+                                    // });
+                                    self.startDelay = 4000;
+                                }
                             }
-                            catch(e){};
-                            self.strings[0] = data.content;
-                        }
-                    });
+                        });
+                    }, 4000);
                 },
                 onLastStringBackspaced: function(self){
-                    $("#source").text(source);
+                    if(window.wallpaper_change_flag){
+                        delay = 2000;
+                    }
+                    else{
+                        delay = 700;
+                    }
+                    setTimeout(function(){
+                        $("#source").text(source);
+                    }, delay / 2);
+                    if(wallpaper_change_flag){
+                        $("#slogan").fadeOut(1000, function(){
+                            $('#centerbg').fadeOut(1000, function(){
+                                // setTimeout(function(){
+                                    $('#centerbg').css('background-image', 'url("' + wallpaper_link + '")');
+                                // }, 100);
+                                $('#centerbg').fadeIn(1000, function(){
+                                    $("#slogan").fadeIn(1000, function(){
+                                        window.wallpaper_change_flag = false;
+                                    });
+                                });
+                            });
+                        });
+                    }
                 }
             });
         }
     });
 }
+
+$(document).ready(function(){
+    $('#change-wallpaper').bind('click', function(){
+        addComment.createButterbar('背景图片将在下一次台词更新时刷新', 5000);
+        this.setAttribute('disabled', true);
+        window.wallpaper_change_flag = true;
+        $('#change-wallpaper').fadeOut(600);
+    });
+});

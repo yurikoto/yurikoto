@@ -2290,6 +2290,26 @@ h1.page-title.mb- {
     background-color:#fff;
     opacity:.8
 }
+#change-wallpaper {
+    position:fixed;
+    bottom:10px;
+    right:10px;
+    z-index:99;
+    border:0;
+    outline:0;
+    background-color:#fff;
+    color:#404040;
+    cursor:pointer;
+    padding:15px;
+    border-radius:10px;
+    border-radius:12px;
+    box-shadow:0 0 2px 0 rgba(0,0,0,.12),0px 2px 2px 0 rgba(0,0,0,.24);
+    transition:box-shadow .2s ease
+}
+#change-wallpaper:hover {
+    background-color:#fff;
+    opacity:.8
+}
 .post-footer {
     padding:20px 0;
     border-bottom:1px dashed #ddd;
@@ -3926,11 +3946,35 @@ li.feature-2 {
     height:550px;
     margin:0;
     padding:0;
+    display: block;
     background-repeat:no-repeat;
+    background-attachment:scroll;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://v1.yurikoto.com/wallpaper");
+    z-index:-1;
+    /* content: '';
+    height:550px;
+    margin:0;
+    padding:0;
+    display: block;
+    position: fixed;
+    z-index: -2;
+    background: url(https://v1.yurikoto.com/wallpaper?type=day);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     background-attachment:fixed;
-    background-size:cover;
-    z-index:-1
+    /* opacity: 1; */
+    /* transition: opacity .5s ease; */
 }
+/* #centerbg::before{
+    background-repeat:no-repeat;
+    background-image: url("https://v1.yurikoto.com/wallpaper?id=6");
+    opacity: 0;
+    transition: opacity 1s;
+    z-index:-1
+} */
 @media(max-width:560px) {
     #bgvideo {
         min-height: 280px !important;

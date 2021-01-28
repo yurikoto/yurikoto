@@ -6,7 +6,7 @@
   <meta name="description" content="百合主题台词、壁纸API。您可在本站欣赏橘里橘气美图美句，也可以免费调用我们提供的API。">
   <meta name="keywords" content="百合, yuri, 动漫, 橘里橘气, 台词, 壁纸, API, 开发者, 开源, 接口, 二次元">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.0.1"></script>
+  <script src="/js/yurikoto-app.js?ver=1.0.2"></script>
   
   <title itemprop="name">开源 | Yurikoto橘语网</title>
 
@@ -31,7 +31,7 @@
   <meta http-equiv="x-dns-prefetch-control" content="on">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/css/googlefont.css" media="all">
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-  <link rel="stylesheet" id="saukra_css-css" href="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css?ver=1.0.2" type="text/css" media="all">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/css/lib.min.css" media="all">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/css/font.css" media="all">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/css/insight.css" media="all">
@@ -79,7 +79,7 @@
   </div>
   <a href="#" class="cd-top faa-float animated"></a>
   <section id="main-container">
-    <div class="headertop filter-dim">
+    <!-- <div class="headertop filter-dim">
   <figure id="centerbg" class="centerbg">
     <div class="focusinfo no-select">
       <div>
@@ -99,6 +99,35 @@
   <div id="video-container" style="display:none">
     <div id="bgvideo" class="video" style="object-fit: fill"></div>
   </div>
+</div> -->
+<div class="headertop filter-dim">
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div>
+        <div class="brand">
+          <div class="description center-align">
+            <div id="slogan">
+              <p id="sentence-container" style="font-size: 35px;line-height: 47px;font-weight: 500;z-index: 900;">
+                『&nbsp;&nbsp;<span id="sentence"></span>&nbsp;&nbsp;』
+              </p>
+              <div>
+                <p id="source" style="float:right;font-size: 20px;font-weight: 400;z-index: 900;"></p>
+                <div></div>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                  show_sentence();
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="video-container" style="display:none">
+      <div id="bgvideo" class="video" style="object-fit: fill"></div>
+    </div>
+  </figure>
+  <button class="change-wallpaper" id="change-wallpaper" title="在下次句子更新时更换背景图片"><i class="fa fa-exchange" aria-hidden="true"></i></button>
 </div>
     <div id="page" class="site wrapper">
       <header class="site-header no-select gizle sabit" role="banner">
@@ -301,7 +330,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -313,10 +342,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         // CONTENT_URL: '/content.json',
@@ -353,11 +382,10 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/zoom.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/sakura-app.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/botui.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/sakura-fall.js"></script>
+<script src="/js/sakura-fall.js?ver=1.0.2"></script>
 <script type="text/javascript">
 /* <![CDATA[ */
 if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-  $('#canvas_sakura').hide();
   var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"2333.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
 } else {
   var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"2333.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
