@@ -8,7 +8,7 @@
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.0.2"></script>
   
-  <title itemprop="name">台词接口 | Yurikoto橘语网</title>
+  <title itemprop="name">第二大版本研发正式提上日程！ | Yurikoto橘语网</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/css/yurikoto.css">
@@ -293,196 +293,24 @@
 </style>
 <div class="pattern-center-blank"></div>
 
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <!-- <div class="pattern-attachment-img lazyload" style="background-image: url(h);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="h"> -->
-      <div class="pattern-attachment-img lazyload" style="background-image: url(https://v1.yurikoto.com/wallpaper);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://v1.yurikoto.com/wallpaper">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      台词接口</h1>
-    </header>
-  </div>
-
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
       <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
         <div class="toc"></div>
         
+          <header class="entry-header">
+            <h1 class="entry-title">第二大版本研发正式提上日程！</h1>
+            <hr>
+          </header>
+        
         <div class="entry-content">
-          <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>调用本站服务或在本站进行投稿，代表您已仔细阅读并同意<a href="/protocol/"><strong>使用条款</strong></a>。<br>本站管理员看过的百合作品有限，难免会有资源错误的情况，特别是壁纸更是重灾区（曾有过误将某后*游戏相关图片入库的严重错误）。如果您发现本站资源有任何错误，请联系<a href="mailto:&#108;&#x69;&#121;&#117;&#x40;&#116;&#x69;&#x67;&#x65;&#114;&#120;&#x6c;&#121;&#46;&#x63;&#111;&#109;">&#108;&#x69;&#121;&#117;&#x40;&#116;&#x69;&#x67;&#x65;&#114;&#120;&#x6c;&#121;&#46;&#x63;&#111;&#109;</a>。</p>
-<h3 id="请求地址生成"><a href="#请求地址生成" class="headerlink" title="请求地址生成"></a>请求地址生成</h3>
-<script>
-    $(document).ready(function(){
-        generate_sentence_url();
-    })
-</script>
-<div class="radio-inline">
-    返回编码：&nbsp;
-    <label><input type="radio" name="encode" value="json" checked> json</label>&nbsp;&nbsp;
-    <label><input type="radio" name="encode" value="text"> 纯文本</label>
-</div>
-<div class="input-group">
-  <input type="text" id="request-link" class="form-control" placeholder="请求链接" aria-label="请求链接" aria-describedby="basic-addon2" value="https://v1.yurikoto.com/sentence" readonly>
-  <div class="input-group-append">
-    <button id="request" class="btn btn-light" type="button" title="请求"><i class="fa fa-chevron-right"></i></button>
-    <button id="copy" class="btn btn-light" type="button" title="复制"><i class="fa fa-clipboard"></i></button>
-  </div>
-</div>
-<textarea type="text" id="request-result" class="form-control" placeholder="请求结果将在此显示" rows="4" readonly></textarea><br><br>
+          <p>今天，第二大版本规划正式开始。我们的开发团队从一人暂时为了三人，在开发Yurikoto的同时完成小组实训大作业。我们将先开发一个歌词、曲绘API以参与项目答辩、著作权申报（上述项目不会公开，Yurikoto题材不适合答辩），该项目开发完成后，将由van_fantasy独立修改为Yurikoto第二大版本（Yurikoto-v2）。</p>
+<p>相较于第一大版本，第二大版本将更加完善、稳定、可靠。我们将开发账户系统（注册账户即可批量投稿，并且可以撤回、修改稿件，非注册账户仍可在线投稿）、审核系统（您可以申请成为审核员），并重构后台管理系统与开放API。官网不作大的改动，但会开放壁纸在线投稿功能。</p>
+<p>第二大版本开发预计耗时一个月，分为5个模块。除官网外，前端部分计划采用vue+bootstrap方案。API、后端部分计划采用gin、django、yii、springboot中的一种或多种。</p>
+<p>开发小组暂时新增的两人为van_fantasy的同学，将负责除官网外的前端的一部分，并在答辩作品开发完成后不再参与开发。将答辩作品修改为Yurikoto-v2的决定已获得他们的许可。</p>
+<p>Yurikoto-v2开发完成后，我们将开源Yurikoto-v1后台管理系统（这个代码极度辣眼睛，切勿作为学习资料）及投稿提交模块，并且会开源Yurikoto-v2台词、壁纸API。Yurikoto-v1将继续维护到2022年12月31日。</p>
 
-
-<h3 id="请求地址"><a href="#请求地址" class="headerlink" title="请求地址"></a>请求地址</h3><p><code>GET https://v1.yurikoto.com/sentence</code></p>
-<h3 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h3>
-<table class="table table-striped">
-<thead>
-<tr>
-<th>参数</th>
-<th>可选</th>
-<th>说明</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>encode</td>
-<td>是</td>
-<td>返回编码</td>
-<td>json</td>
-</tr>
-</tbody></table>
-
-
-<h4 id="返回编码"><a href="#返回编码" class="headerlink" title="返回编码"></a>返回编码</h4>
-<table class="table table-striped">
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>text</td>
-<td>返回纯文本（只返回正文）</td>
-</tr>
-<tr>
-<td>json</td>
-<td>返回json</td>
-</tr>
-</tbody></table><br>
-
-
-
-
-
-
-<h3 id="返回格式"><a href="#返回格式" class="headerlink" title="返回格式"></a>返回格式</h3>
-<table class="table table-striped">
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>status</td>
-<td>状态</td>
-</tr>
-<tr>
-<td>id</td>
-<td>台词编号</td>
-</tr>
-<tr>
-<td>content</td>
-<td>台词正文（utf-8）</td>
-</tr>
-<tr>
-<td>source</td>
-<td>台词来源</td>
-</tr>
-</tbody></table>
-
-
-<h4 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h4>
-<table class="table table-striped">
-<thead>
-<tr>
-<th>参数</th>
-<th>状态码</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>success</td>
-<td>200</td>
-<td>成功</td>
-</tr>
-<tr>
-<td>failed</td>
-<td>400</td>
-<td>未知错误</td>
-</tr>
-<tr>
-<td>failed</td>
-<td>403</td>
-<td>非法访问</td>
-</tr>
-<tr>
-<td>failed</td>
-<td>404</td>
-<td>接口不存在</td>
-</tr>
-<tr>
-<td>failed</td>
-<td>429</td>
-<td>请求频率过高</td>
-</tr>
-<tr>
-<td>failed</td>
-<td>500</td>
-<td>服务端发生错误</td>
-</tr>
-</tbody></table><br>
-
-
-
-
-<h3 id="使用例"><a href="#使用例" class="headerlink" title="使用例"></a>使用例</h3><p>结合typed.js使用（本站首页实现）</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">var source;
-var prefix &#x3D; &quot;From: &quot;;
-$.get(&quot;https:&#x2F;&#x2F;v1.yurikoto.com&#x2F;sentence&quot;, function(data, status)&#123;
-    try&#123;
-        data &#x3D; JSON.parse(data);
-        source &#x3D; prefix + data.source;
-    &#125;
-    catch(e)&#123;&#125;;
-    if(status &#x3D;&#x3D; &quot;success&quot;)&#123;
-        $(&quot;#source&quot;).text(source);
-        var typed &#x3D; new Typed(&quot;#sentence&quot;, &#123;
-            strings: [data.content],
-            startDelay: 300,
-            typeSpeed: 100,
-            loop: true,
-            backSpeed: 50,
-            showCursor: true,
-            onComplete: function(self)&#123;
-                $.get(&quot;https:&#x2F;&#x2F;v1.yurikoto.com&#x2F;sentence&quot;, function(data, status)&#123;
-                    if(status &#x3D;&#x3D; &quot;success&quot;)&#123;
-                        try&#123;
-                            data &#x3D; JSON.parse(data);
-                            source &#x3D; prefix + data.source;
-                        &#125;
-                        catch(e)&#123;&#125;;
-                        self.strings[0] &#x3D; data.content;
-                    &#125;
-                &#125;);
-            &#125;,
-            onLastStringBackspaced: function(self)&#123;
-                $(&quot;#source&quot;).text(source);
-            &#125;
-        &#125;);
-    &#125;
-&#125;);</code></pre>
         </div>
       </article>
     </main><!-- #main -->
