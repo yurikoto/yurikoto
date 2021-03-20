@@ -1,7 +1,7 @@
 $(document).ready(function(){
     //控制台绘画
     console.log("%c##    ## ##     ## ########  #### ##    ##  #######  ########  #######  \n ##  ##  ##     ## ##     ##  ##  ##   ##  ##     ##    ##    ##     ## \n  ####   ##     ## ##     ##  ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ########   ##  #####    ##     ##    ##    ##     ## \n   ##    ##     ## ##   ##    ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ##    ##   ##  ##   ##  ##     ##    ##    ##     ## \n   ##     #######  ##     ## #### ##    ##  #######     ##     #######  ", "color: #fc8217");
-    console.log("%c     Ver 1.0.3  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
+    console.log("%c     Ver 1.0.4  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
     //移动端主页优化
     if(mobileCheck()){
         console.log("检测到您正在手机端浏览，已为您进行必要的UI优化。");
@@ -285,7 +285,12 @@ function generate_sentence_url(){
         link = $('#request-link').val();
         $.get(link, function(data, status){
             if(status == "success"){
-                $("#request-result").val(data);
+                if($('input[type=radio][name=encode]:checked').val() == 'json'){
+                    $("#request-result").val(JSON.stringify(data));
+                }
+                else if($('input[type=radio][name=encode]:checked').val() == 'text'){
+                    $("#request-result").val(data);
+                }
             }
         });
     });
@@ -313,7 +318,12 @@ function get_wallpaper_url(){
         else{
             $.get(link, function(data, status){
                 if(status == "success"){
-                    $("#request-result").val(data);
+                    if($('input[type=radio][name=encode]:checked').val() == 'json'){
+                        $("#request-result").val(JSON.stringify(data));
+                    }
+                    else if($('input[type=radio][name=encode]:checked').val() == 'text'){
+                        $("#request-result").val(data);
+                    }
                 }
             });
         }
