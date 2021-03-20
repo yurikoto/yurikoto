@@ -1,7 +1,7 @@
 $(document).ready(function(){
     //控制台绘画
     console.log("%c##    ## ##     ## ########  #### ##    ##  #######  ########  #######  \n ##  ##  ##     ## ##     ##  ##  ##   ##  ##     ##    ##    ##     ## \n  ####   ##     ## ##     ##  ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ########   ##  #####    ##     ##    ##    ##     ## \n   ##    ##     ## ##   ##    ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ##    ##   ##  ##   ##  ##     ##    ##    ##     ## \n   ##     #######  ##     ## #### ##    ##  #######     ##     #######  ", "color: #fc8217");
-    console.log("%c     Ver 1.0.2  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
+    console.log("%c     Ver 1.0.3  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
     //移动端主页优化
     if(mobileCheck()){
         console.log("检测到您正在手机端浏览，已为您进行必要的UI优化。");
@@ -351,7 +351,7 @@ function get_statistics(){
     $.get("https://v1.yurikoto.com/statistic", function(data, status){
         if(status == "success"){
             try{
-                data = JSON.parse(data);
+                // data = JSON.parse(data);
                 $("#count-sentence-requested").text(data.data.sentence.requested);
                 $("#count-wallpaper-requested").text(data.data.wallpaper.requested);
                 $("#count-sentence-uploaded").text(data.data.sentence.uploaded);
@@ -403,7 +403,7 @@ function show_sentence(){
     var wallpaper_link;
     $.get("https://v1.yurikoto.com/sentence", function(data, status){
         try{
-            data = JSON.parse(data);
+            // data = JSON.parse(data);
             source = prefix + data.source;
         }
         catch(e){};
@@ -441,7 +441,7 @@ function show_sentence(){
                         $.get("https://v1.yurikoto.com/sentence", function(data, status){
                             if(status == "success"){
                                 try{
-                                    data = JSON.parse(data);
+                                    // data = JSON.parse(data);
                                     source = prefix + data.source;
                                 }
                                 catch(e){};
