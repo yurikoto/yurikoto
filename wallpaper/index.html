@@ -6,7 +6,8 @@
   <meta name="description" content="百合主题台词、壁纸API。您可在本站欣赏橘里橘气美图美句，也可以免费调用我们提供的API。">
   <meta name="keywords" content="百合, yuri, 动漫, 橘里橘气, 台词, 壁纸, API, 开发者, 开源, 接口, 二次元">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.0.4"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.0.5"></script> -->
+  <script src="https://yurikoto.com/js/yurikoto-app.js?ver=1.0.5"></script>
   
   <title itemprop="name">壁纸接口 | Yurikoto橘语网</title>
 
@@ -314,7 +315,7 @@
         <div class="toc"></div>
         
         <div class="entry-content">
-          <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>调用本站服务或在本站进行投稿，代表您已仔细阅读并同意<a href="/protocol/"><strong>使用条款</strong></a>。<br>本站管理员看过的百合作品有限，难免会有资源错误的情况，特别是壁纸更是重灾区（曾有过误将某后*游戏相关图片入库的严重错误）。如果您发现本站资源有任何错误，请联系<a href="mailto:&#108;&#105;&#121;&#x75;&#x40;&#116;&#105;&#x67;&#x65;&#114;&#x78;&#108;&#121;&#46;&#x63;&#x6f;&#x6d;">&#108;&#105;&#121;&#x75;&#x40;&#116;&#105;&#x67;&#x65;&#114;&#x78;&#108;&#121;&#46;&#x63;&#x6f;&#x6d;</a>。</p>
+          <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>调用本站服务或在本站进行投稿，代表您已仔细阅读并同意<a href="/protocol/"><strong>使用条款</strong></a>。<br>本站管理员看过的百合作品有限，难免会有资源错误的情况，特别是壁纸更是重灾区（曾有过误将某后*游戏相关图片入库的严重错误）。如果您发现本站资源有任何错误，请联系<a href="mailto:&#x6c;&#105;&#x79;&#x75;&#x40;&#x74;&#105;&#x67;&#x65;&#114;&#x78;&#x6c;&#121;&#x2e;&#99;&#111;&#x6d;">&#x6c;&#105;&#x79;&#x75;&#x40;&#x74;&#105;&#x67;&#x65;&#114;&#x78;&#x6c;&#121;&#x2e;&#99;&#111;&#x6d;</a>。</p>
 <h3 id="请求地址生成"><a href="#请求地址生成" class="headerlink" title="请求地址生成"></a>请求地址生成</h3>
 <script>
     $(document).ready(function(){
@@ -329,9 +330,10 @@
 </div>
 <div class="radio-inline">
     壁纸类型：&nbsp;
-    <label><input type="radio" name="type" value="all" checked> 全部</label>&nbsp;&nbsp;
+    <label><input type="radio" name="type" value="all" checked> 按当前时间</label>&nbsp;&nbsp;
     <label><input type="radio" name="type" value="day"> 白天</label>&nbsp;&nbsp;
-    <label><input type="radio" name="type" value="night"> 夜晚</label>
+    <label><input type="radio" name="type" value="night"> 夜晚</label>&nbsp;&nbsp;
+    <label><input type="radio" name="type" value="rand"> 随机</label>
 </div>
 <div class="input-group">
   <input type="text" id="request-link" class="form-control" placeholder="请求链接" aria-label="请求链接" aria-describedby="basic-addon2" value="https://v1.yurikoto.com/wallpaper" readonly>
@@ -365,7 +367,13 @@
 <td>type</td>
 <td>是</td>
 <td>壁纸类型</td>
-<td>all</td>
+<td>见下文</td>
+</tr>
+<tr>
+<td>utc</td>
+<td>是</td>
+<td>时区</td>
+<td>+8</td>
 </tr>
 </tbody></table>
 
@@ -401,7 +409,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>all</td>
+<td>rand</td>
 <td>获取随机壁纸</td>
 </tr><tr>
 <td>day</td>
@@ -410,14 +418,14 @@
 <tr>
 <td>night</td>
 <td>获取夜晚模式壁纸</td>
+</tr><tr>
+<td>默认</td>
+<td>按照时间随机</td>
 </tr>
 </tbody></table><br>
 
 
-
-
-
-
+<h4 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h4><p>当不指定type时，可指定时区，如+9、-1等，默认为+8。当指定type时，优先按type处理。</p>
 <h3 id="返回格式"><a href="#返回格式" class="headerlink" title="返回格式"></a>返回格式</h3>
 <table class="table table-striped">
 <thead>

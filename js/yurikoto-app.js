@@ -1,7 +1,7 @@
 $(document).ready(function(){
     //控制台绘画
     console.log("%c##    ## ##     ## ########  #### ##    ##  #######  ########  #######  \n ##  ##  ##     ## ##     ##  ##  ##   ##  ##     ##    ##    ##     ## \n  ####   ##     ## ##     ##  ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ########   ##  #####    ##     ##    ##    ##     ## \n   ##    ##     ## ##   ##    ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ##    ##   ##  ##   ##  ##     ##    ##    ##     ## \n   ##     #######  ##     ## #### ##    ##  #######     ##     #######  ", "color: #fc8217");
-    console.log("%c     Ver 1.0.4  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
+    console.log("%c     Ver 1.0.5  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
     //移动端主页优化
     if(mobileCheck()){
         console.log("检测到您正在手机端浏览，已为您进行必要的UI优化。");
@@ -341,18 +341,24 @@ function generate(encode, type){
         $('#request-link').val("https://v1.yurikoto.com/wallpaper?type=day");
     }else if(encode == "redirect" && type == "night"){
         $('#request-link').val("https://v1.yurikoto.com/wallpaper?type=night");
+    }else if(encode == "redirect" && type == "rand"){
+        $('#request-link').val("https://v1.yurikoto.com/wallpaper?type=rand");
     }else if(encode == "json" && type == "all"){
         $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=json");
     }else if(encode == "json" && type == "day"){
         $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=json&type=day");
     }else if(encode == "json" && type == "night"){
         $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=json&type=night");
+    }else if(encode == "json" && type == "rand"){
+        $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=json&type=rand");
     }else if(encode == "text" && type == "all"){
         $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=text");
     }else if(encode == "text" && type == "day"){
         $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=text&type=day");
     }else if(encode == "text" && type == "night"){
         $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=text&type=night");
+    }else if(encode == "text" && type == "rand"){
+        $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=text&type=rand");
     }
 }
 
