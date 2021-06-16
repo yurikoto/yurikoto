@@ -6,8 +6,8 @@
   <meta name="description" content="百合主题台词、壁纸API。您可在本站欣赏橘里橘气美图美句，也可以免费调用我们提供的API。">
   <meta name="keywords" content="百合, yuri, 动漫, 橘里橘气, 台词, 壁纸, API, 开发者, 开源, 接口, 二次元">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.0.5"></script>
-  <!-- <script src="https://yurikoto.com/js/yurikoto-app.js?ver=1.0.5"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.5.0"></script> -->
+  <script src="https://yurikoto.com/js/yurikoto-app.js?ver=1.5.0"></script>
   
   <title itemprop="name">关于 | Yurikoto橘语网</title>
 
@@ -317,8 +317,8 @@
         <div class="entry-content">
           <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>本站始建于2020年12月31日，因对百合的热爱而诞生，灵感来自<a target="_blank" rel="noopener" href="https://hitokoto.cn/">一言Hitokoto</a>，由<a target="_blank" rel="noopener" href="https://www.tigerxly.com/">van_fantasy</a>独自创立、建设、维护。十分欢迎百合爱好者使用本站的服务。<br>2020年12月31日上午，1小时35分钟的《大型数据库技术》课程，菜鸡大学生<a target="_blank" rel="noopener" href="https://www.tigerxly.com/">van_fantasy</a>没有听课。他用iPad连接到了在寝室里的PC，在11寸的小屏幕上创建了一个简单的百合壁纸api，并找了十几张图。<a target="_blank" rel="noopener" href="https://blog.tigerxly.com/1877.html">【网站建设】随机百合壁纸api</a>描述了最初的Yurikoto，那是梦开始的地方。本来他只是想写一个api自己用顺便摸鱼打发上课时间，写着写着，他准备做得大一些、好一些。慢慢地，产生了Yurikoto。<br>Yurikoto，即百合语言，或者叫橘语，故本站名曰橘语网。Yuri，即女孩子与女孩子的感情。</p>
 <h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><p><strong>telegram频道：</strong><a target="_blank" rel="noopener" href="https://t.me/yurikoto_channel">https://t.me/yurikoto_channel</a><br><strong>telegram群：</strong><a target="_blank" rel="noopener" href="https://t.me/yurikoto_group">https://t.me/yurikoto_group</a><br><strong>QQ群：</strong>待建</p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>本站主页采用Hexo静态页面生成器并对Sakura主题一通爆改；当前api使用原生PHP编写，部署在摸大型IDC的成都数据中心，全站采用付费全球CDN。</p>
-<h3 id="未来计划"><a href="#未来计划" class="headerlink" title="未来计划"></a>未来计划</h3><p>下一版本计划使用成熟框架实现api与后台管理系统，以追求更高的稳定性，并计划视情况采用memcached作为数据缓存层。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>本站主页采用Hexo静态页面生成器并对Sakura主题一通爆改；当前api基于go-gin实现，部署在摸大型IDC的成都数据中心，全站采用付费全球CDN。</p>
+<h3 id="未来计划"><a href="#未来计划" class="headerlink" title="未来计划"></a>未来计划</h3><p>下一版本计划开发用户中心等新模块。</p>
 <h3 id="开源情况"><a href="#开源情况" class="headerlink" title="开源情况"></a>开源情况</h3><p>本站除了后台管理模块等敏感模块均开源，敏感模块在版本迭代时，旧版本将开源。</p>
 <h3 id="发展历程"><a href="#发展历程" class="headerlink" title="发展历程"></a>发展历程</h3><ul>
 <li>2020年12月31日，初代API完成，仅有随机壁纸功能，开发本意为个人使用。</li>
@@ -330,6 +330,7 @@
 <li>2021年01月22日，Yurikoto工信部ICP备案成功签发，进入最后的前端调优与部署上云阶段。</li>
 <li>2021年01月23日，Yurikoto与其第一版API正式上线，上线首日调用量破万。</li>
 <li>2021年01月25日，API调用量突破十万。</li>
+<li>2021年06月16日，API改用go-gin实现。</li>
 </ul>
 
 <!-- <div class="timeline-small">
@@ -384,7 +385,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -396,10 +397,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         // CONTENT_URL: '/content.json',

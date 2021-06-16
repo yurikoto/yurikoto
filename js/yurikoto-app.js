@@ -1,7 +1,7 @@
 $(document).ready(function(){
     //控制台绘画
     console.log("%c##    ## ##     ## ########  #### ##    ##  #######  ########  #######  \n ##  ##  ##     ## ##     ##  ##  ##   ##  ##     ##    ##    ##     ## \n  ####   ##     ## ##     ##  ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ########   ##  #####    ##     ##    ##    ##     ## \n   ##    ##     ## ##   ##    ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ##    ##   ##  ##   ##  ##     ##    ##    ##     ## \n   ##     #######  ##     ## #### ##    ##  #######     ##     #######  ", "color: #fc8217");
-    console.log("%c     Ver 1.0.5  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
+    console.log("%c     Ver 1.5.0  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
     //移动端主页优化
     if(mobileCheck()){
         console.log("检测到您正在手机端浏览，已为您进行必要的UI优化。");
