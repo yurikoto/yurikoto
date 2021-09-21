@@ -661,6 +661,9 @@ function timeSeriesReload (flag) {
 timeSeriesReload()
 
 var pjaxInit = function () {
+  // console.log(1111111)
+  // window.lazyLoadInstance = new LazyLoad({});
+  // lazyLoadInstance.update();
   add_upload_tips()
   click_to_view_image()
   original_emoji_click()
@@ -1565,6 +1568,8 @@ $(function () {
       }
       Prism.highlightAll();
       $(".site-content").find("img").addClass("zommify lazyload");
+      // lazyLoadInstance.update();
+      // console.log(11111);
       // zoomifyInit();
       // repocardInit();
     }).on('submit', '.search-form,.s-search', function (event) {
