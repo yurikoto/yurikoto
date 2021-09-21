@@ -6,10 +6,10 @@
   <meta name="description" content="百合主题台词、壁纸API。您可在本站欣赏橘里橘气美图美句，也可以免费调用我们提供的API。">
   <meta name="keywords" content="百合, yuri, 动漫, 橘里橘气, 台词, 壁纸, API, 开发者, 开源, 接口, 二次元">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.5.0"></script>
-  <!-- <script src="https://yurikoto.com/js/yurikoto-app.js?ver=1.5.0"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.5.0"></script> -->
+  <script src="/js/yurikoto-app.js"></script>
   
-  <title itemprop="name">1.5.0更新日志 | Yurikoto橘语网</title>
+  <title itemprop="name">1.6.0更新日志 | Yurikoto橘语网</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/css/yurikoto.css">
@@ -299,12 +299,12 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <!-- <div class="pattern-attachment-img lazyload" style="background-image: url(https://v1.yurikoto.com/wallpaper?id=23333);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://v1.yurikoto.com/wallpaper?id=23333"> -->
+    <!-- <div class="pattern-attachment-img lazyload" style="background-image: url(https://v1.yurikoto.com/wallpaper?id=23337);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://v1.yurikoto.com/wallpaper?id=23337"> -->
       <div class="pattern-attachment-img lazyload" style="background-image: url(https://v1.yurikoto.com/wallpaper);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://v1.yurikoto.com/wallpaper">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      1.5.0更新日志</h1>
+      1.6.0更新日志</h1>
     </header>
   </div>
 
@@ -316,7 +316,9 @@
         
         <div class="entry-content">
           <ul>
-<li>API技术栈转向go-gin，接口数据类型几乎不变。</li>
+<li>壁纸接口可获取竖屏壁纸了！详见<a href="/wallpaper/">壁纸接口api文档</a>。</li>
+<li>壁纸接口json数据加入<code>orientation</code>字段，对普通调用影响不大。详见<a href="/wallpaper/">壁纸接口api文档</a>。</li>
+<li>优化了一些前端算法。</li>
 </ul>
 
         </div>
@@ -332,7 +334,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -344,10 +346,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         // CONTENT_URL: '/content.json',

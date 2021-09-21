@@ -1,7 +1,7 @@
 $(document).ready(function(){
     //控制台绘画
     console.log("%c##    ## ##     ## ########  #### ##    ##  #######  ########  #######  \n ##  ##  ##     ## ##     ##  ##  ##   ##  ##     ##    ##    ##     ## \n  ####   ##     ## ##     ##  ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ########   ##  #####    ##     ##    ##    ##     ## \n   ##    ##     ## ##   ##    ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ##    ##   ##  ##   ##  ##     ##    ##    ##     ## \n   ##     #######  ##     ## #### ##    ##  #######     ##     #######  ", "color: #fc8217");
-    console.log("%c     Ver 1.5.0  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
+    console.log("%c     Ver 1.6.0  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
     //移动端主页优化
     if(mobileCheck()){
         console.log("检测到您正在手机端浏览，已为您进行必要的UI优化。");
@@ -300,28 +300,33 @@ function generate_sentence_url(){
     });
 }
 function get_wallpaper_url(){
-    var encode = 'redirect';
-    var type = 'all';
+    var encode = 0;
+    var type = 0;
+    var orien = 0;
     $('input[type=radio][name=encode]').change(function(){
         encode = this.value;
-        generate(encode, type);
+        generate(encode, type, orien);
     });
     $('input[type=radio][name=type]').change(function(){
         type = this.value;
-        generate(encode, type);
+        generate(encode, type, orien);
+    });
+    $('input[type=radio][name=orientation]').change(function(){
+        orien = this.value;
+        generate(encode, type, orien);
     });
     $('#request').bind('click', function(){
         link = $('#request-link').val();
-        if(encode == "redirect"){
+        if(encode == 0){
             window.open(link);
         }
         else{
             $.get(link, function(data, status){
                 if(status == "success"){
-                    if($('input[type=radio][name=encode]:checked').val() == 'json'){
+                    if($('input[type=radio][name=encode]:checked').val() == 1){
                         $("#request-result").val(JSON.stringify(data));
                     }
-                    else if($('input[type=radio][name=encode]:checked').val() == 'text'){
+                    else if($('input[type=radio][name=encode]:checked').val() == 2){
                         $("#request-result").val(data);
                     }
                 }
@@ -334,32 +339,23 @@ function get_wallpaper_url(){
         copyToClip(link);
     });
 }
-function generate(encode, type){
-    if(encode == "redirect" && type == "all"){
-        $('#request-link').val("https://v1.yurikoto.com/wallpaper");
-    }else if(encode == "redirect" && type == "day"){
-        $('#request-link').val("https://v1.yurikoto.com/wallpaper?type=day");
-    }else if(encode == "redirect" && type == "night"){
-        $('#request-link').val("https://v1.yurikoto.com/wallpaper?type=night");
-    }else if(encode == "redirect" && type == "rand"){
-        $('#request-link').val("https://v1.yurikoto.com/wallpaper?type=rand");
-    }else if(encode == "json" && type == "all"){
-        $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=json");
-    }else if(encode == "json" && type == "day"){
-        $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=json&type=day");
-    }else if(encode == "json" && type == "night"){
-        $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=json&type=night");
-    }else if(encode == "json" && type == "rand"){
-        $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=json&type=rand");
-    }else if(encode == "text" && type == "all"){
-        $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=text");
-    }else if(encode == "text" && type == "day"){
-        $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=text&type=day");
-    }else if(encode == "text" && type == "night"){
-        $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=text&type=night");
-    }else if(encode == "text" && type == "rand"){
-        $('#request-link').val("https://v1.yurikoto.com/wallpaper?encode=text&type=rand");
+function generate(encode, type, orien){
+    con = ["?", "&", "&"];
+    cnt = (encode > 0) + (type > 0) + (orien > 0);
+    param = [encode, type, orien];
+    opt = [["", "encode=json", "encode=text"], ["", "type=day", "type=night", "type=rand"], ["", "orientation=vertical", "orientation=rand"]];
+    str = "https://v1.yurikoto.com/wallpaper";
+    for(var i = 0; i < cnt; ++i){
+        str += con[i];
+        for(var j = i; j < 3; ++j){
+            if(param[j] != 0){
+                str += opt[j][param[j]];
+                param[j] = 0;
+                break;
+            }
+        }
     }
+    $('#request-link').val(str);
 }
 
 // 请求量统计

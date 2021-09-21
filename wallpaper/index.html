@@ -6,8 +6,8 @@
   <meta name="description" content="百合主题台词、壁纸API。您可在本站欣赏橘里橘气美图美句，也可以免费调用我们提供的API。">
   <meta name="keywords" content="百合, yuri, 动漫, 橘里橘气, 台词, 壁纸, API, 开发者, 开源, 接口, 二次元">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.5.0"></script>
-  <!-- <script src="https://yurikoto.com/js/yurikoto-app.js?ver=1.5.0"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.5.0"></script> -->
+  <script src="/js/yurikoto-app.js"></script>
   
   <title itemprop="name">壁纸接口 | Yurikoto橘语网</title>
 
@@ -315,7 +315,7 @@
         <div class="toc"></div>
         
         <div class="entry-content">
-          <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>调用本站服务或在本站进行投稿，代表您已仔细阅读并同意<a href="/protocol/"><strong>使用条款</strong></a>。<br>本站管理员看过的百合作品有限，难免会有资源错误的情况，特别是壁纸更是重灾区（曾有过误将某后*游戏相关图片入库的严重错误）。如果您发现本站资源有任何错误，请联系<a href="mailto:&#x73;&#117;&#112;&#112;&#111;&#114;&#x74;&#64;&#x6b;&#x73;&#x61;&#x72;&#x2e;&#x63;&#x63;">&#x73;&#117;&#112;&#112;&#111;&#114;&#x74;&#64;&#x6b;&#x73;&#x61;&#x72;&#x2e;&#x63;&#x63;</a>。</p>
+          <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>调用本站服务或在本站进行投稿，代表您已仔细阅读并同意<a href="/protocol/"><strong>使用条款</strong></a>。<br>本站管理员看过的百合作品有限，难免会有资源错误的情况，特别是壁纸更是重灾区（曾有过误将某后*游戏相关图片入库的严重错误）。如果您发现本站资源有任何错误，请联系<a href="mailto:&#115;&#x75;&#x70;&#112;&#x6f;&#114;&#x74;&#64;&#x6b;&#115;&#x61;&#114;&#x2e;&#x63;&#99;">&#115;&#x75;&#x70;&#112;&#x6f;&#114;&#x74;&#64;&#x6b;&#115;&#x61;&#114;&#x2e;&#x63;&#99;</a>。</p>
 <h3 id="请求地址生成"><a href="#请求地址生成" class="headerlink" title="请求地址生成"></a>请求地址生成</h3>
 <script>
     $(document).ready(function(){
@@ -324,16 +324,22 @@
 </script>
 <div class="radio-inline">
     返回编码：&nbsp;
-    <label><input type="radio" name="encode" value="redirect" checked> 重定向</label>&nbsp;&nbsp;
-    <label><input type="radio" name="encode" value="json"> json</label>&nbsp;&nbsp;
-    <label><input type="radio" name="encode" value="text"> 纯文本</label>
+    <label><input type="radio" name="encode" value=0 checked> 重定向</label>&nbsp;&nbsp;
+    <label><input type="radio" name="encode" value=1> json</label>&nbsp;&nbsp;
+    <label><input type="radio" name="encode" value=2> 纯文本</label>
 </div>
 <div class="radio-inline">
     壁纸类型：&nbsp;
-    <label><input type="radio" name="type" value="all" checked> 按当前时间</label>&nbsp;&nbsp;
-    <label><input type="radio" name="type" value="day"> 白天</label>&nbsp;&nbsp;
-    <label><input type="radio" name="type" value="night"> 夜晚</label>&nbsp;&nbsp;
-    <label><input type="radio" name="type" value="rand"> 随机</label>
+    <label><input type="radio" name="type" value=0 checked> 按当前时间</label>&nbsp;&nbsp;
+    <label><input type="radio" name="type" value=1> 白天</label>&nbsp;&nbsp;
+    <label><input type="radio" name="type" value=2> 夜晚</label>&nbsp;&nbsp;
+    <label><input type="radio" name="type" value=3> 随机</label>
+</div>
+<div class="radio-inline">
+    屏幕方向：&nbsp;
+    <label><input type="radio" name="orientation" value=0 checked> 水平</label>&nbsp;&nbsp;
+    <label><input type="radio" name="orientation" value=1> 垂直</label>&nbsp;&nbsp;
+    <label><input type="radio" name="orientation" value=2> 随机</label>
 </div>
 <div class="input-group">
   <input type="text" id="request-link" class="form-control" placeholder="请求链接" aria-label="请求链接" aria-describedby="basic-addon2" value="https://v1.yurikoto.com/wallpaper" readonly>
@@ -367,6 +373,12 @@
 <td>type</td>
 <td>是</td>
 <td>壁纸类型</td>
+<td>见下文</td>
+</tr>
+<tr>
+<td>orientation</td>
+<td>是</td>
+<td>屏幕方向</td>
 <td>见下文</td>
 </tr>
 <tr>
@@ -425,6 +437,31 @@
 </tbody></table><br>
 
 
+<h4 id="屏幕方向"><a href="#屏幕方向" class="headerlink" title="屏幕方向"></a>屏幕方向</h4>
+<table class="table table-striped">
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rand</td>
+<td>获取随机壁纸</td>
+</tr><tr>
+<td>horizontal</td>
+<td>获取横屏壁纸</td>
+</tr>
+<tr>
+<td>vertical</td>
+<td>获取竖屏壁纸</td>
+</tr><tr>
+<td>默认</td>
+<td>获取横屏壁纸</td>
+</tr>
+</tbody></table><br>
+
+
 <h4 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h4><p>当不指定type时，可指定时区，如+9、-1等，默认为+8。当指定type时，优先按type处理。</p>
 <h3 id="返回格式"><a href="#返回格式" class="headerlink" title="返回格式"></a>返回格式</h3>
 <table class="table table-striped">
@@ -449,6 +486,10 @@
 <tr>
 <td>type</td>
 <td>壁纸类型</td>
+</tr>
+<tr>
+<td>orientation</td>
+<td>屏幕方向</td>
 </tr>
 </tbody></table>
 
@@ -508,7 +549,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -520,10 +561,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         // CONTENT_URL: '/content.json',
