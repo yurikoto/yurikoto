@@ -318,12 +318,11 @@
           <p>调用本站任何接口、在本站进行投稿均代表您已经阅读并同意如下的使用条款：</p>
 <h3 id="一、您需要满足的条件"><a href="#一、您需要满足的条件" class="headerlink" title="一、您需要满足的条件"></a>一、您需要满足的条件</h3><ol>
 <li>您不得恶意调用、攻击本站提供的任何服务。</li>
-<li>您必须尊重百合圈的网络文化。</li>
+<li>您必须尊重二次元与三次元百合圈的网络文化。</li>
 </ol>
 <h3 id="二、您的站点或服务的内容需要满足的条件"><a href="#二、您的站点或服务的内容需要满足的条件" class="headerlink" title="二、您的站点或服务的内容需要满足的条件"></a>二、您的站点或服务的内容需要满足的条件</h3><ol>
 <li>不违反中华人民共和国大陆地区法律。</li>
 <li>由个人、小团体维护、运营，无盈利。</li>
-<li>不存在任何与百合对立内容（如强烈BG向、“老婆党”等内容）。</li>
 <li>调用频率合理（每个ip每3秒小于等于10次，浏览器直接访问每个ip每分钟小于等于5次）。</li>
 </ol>
 <h3 id="三、您的稿件需要满足的条件"><a href="#三、您的稿件需要满足的条件" class="headerlink" title="三、您的稿件需要满足的条件"></a>三、您的稿件需要满足的条件</h3><ol>
@@ -361,10 +360,9 @@
 <h3 id="九、典型违规示例"><a href="#九、典型违规示例" class="headerlink" title="九、典型违规示例"></a>九、典型违规示例</h3><ol>
 <li>商业性质站点调用本站服务。（违规不违法）</li>
 <li>V*S、*场、黄赌毒站点或任何存在与上述内容相关内容的站点调用本站服务。（违法）</li>
-<li>“老婆党”站点调用本站服务。（违规不违法）</li>
 </ol>
 <h3 id="十、常见问题"><a href="#十、常见问题" class="headerlink" title="十、常见问题"></a>十、常见问题</h3><h5 id="接口调用量有什么限制？"><a href="#接口调用量有什么限制？" class="headerlink" title="接口调用量有什么限制？"></a>接口调用量有什么限制？</h5><p>对于网站等场景调用本站接口（正确设置HTTP报文头Referer字段，Ajax等调用方式浏览器会自动设置）每个ip每3秒可调用10次；对于浏览器等场景直接访问本站接口（未设置或未正确设置HTTP报文头Referer字段，如<code>window.open()</code>），每个ip每分钟可调用5次。本站检查HTTP报文头主要目的是防止滥用。</p>
-<h5 id="你们的服务稳定、可靠吗？"><a href="#你们的服务稳定、可靠吗？" class="headerlink" title="你们的服务稳定、可靠吗？"></a>你们的服务稳定、可靠吗？</h5><p>我们会尽可能使本站稳定、可靠，但不对此做任何保证。百合圈本就小众，其中的开发者更是少之又少，本站调用量也不会很大。目前本站使用原生PHP作为接口，使用MySQL存储台词与图片链接，使用Redis作访问控制，部署在某大型IDC的成都数据中心，使用付费全球CDN方案，图片资源github托管jsdelivr加速，足够应对较低的请求量。</p>
+<h5 id="你们的服务稳定、可靠吗？"><a href="#你们的服务稳定、可靠吗？" class="headerlink" title="你们的服务稳定、可靠吗？"></a>你们的服务稳定、可靠吗？</h5><p>我们会尽可能使本站稳定、可靠，但不对此做任何保证。百合圈本就小众，其中的开发者更是少之又少，本站调用量也不会很大。目前本站使用go-gin作为接口，使用MySQL存储台词与图片链接，使用Redis作访问控制，部署在某大型IDC的成都数据中心，使用付费全球CDN方案，图片资源托管于某商业图床，足够应对较低的请求量。</p>
 <h5 id="服务端可以调用吗？"><a href="#服务端可以调用吗？" class="headerlink" title="服务端可以调用吗？"></a>服务端可以调用吗？</h5><p>可以，但不建议调用。首先您需要正确设置HTTP报文头；您也需要注意，服务端调用时，本站获取到的是服务端ip。如果您的服务访问量较大，可能会很容易超出限制导致您的服务不稳定。</p>
 <h5 id="项目是否开源？"><a href="#项目是否开源？" class="headerlink" title="项目是否开源？"></a>项目是否开源？</h5><p>除了后台管理系统、源站校验模块等敏感部分，其他全部开源。敏感部分在版本迭代后，旧版本将开源。<a href="/opensource/">详见这里</a>。</p>
 <h5 id="商业网站可以调用吗？"><a href="#商业网站可以调用吗？" class="headerlink" title="商业网站可以调用吗？"></a>商业网站可以调用吗？</h5><p>不可以，除非您提供本站用到的所有资源的商用许可。</p>
@@ -383,7 +381,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -395,10 +393,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         // CONTENT_URL: '/content.json',
