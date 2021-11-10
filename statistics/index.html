@@ -6,7 +6,8 @@
   <meta name="description" content="百合主题台词、壁纸API。您可在本站欣赏橘里橘气美图美句，也可以免费调用我们提供的API。">
   <meta name="keywords" content="百合, yuri, 动漫, 橘里橘气, 台词, 壁纸, API, 开发者, 开源, 接口, 二次元">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.6.0"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.6.0"></script> -->
+  <script src="https://yurikoto.com/js/yurikoto-app.js?ver=1.6.1"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"></script> -->
   <!-- <script src="/js/yurikoto-app.js"></script> -->
   
@@ -324,7 +325,25 @@
 </script>
 
 
-<h3 id="请求量统计"><a href="#请求量统计" class="headerlink" title="请求量统计"></a>请求量统计</h3>
+<h3 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h3>
+<table class="table table-striped">
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>当前服务节点</td>
+<td><span id="current-node">四川成都01（阿里云）</span></td>
+</tr><tr>
+<td>客户端IP地址</td>
+<td><span id="client-ip">127.0.0.1</span></td>
+</tr>
+</tbody></table>
+
+
+<h3 id="请求量"><a href="#请求量" class="headerlink" title="请求量"></a>请求量</h3>
 <table class="table table-striped">
 <thead>
 <tr>
@@ -342,7 +361,27 @@
 </tbody></table>
 
 
-<h3 id="资源数统计"><a href="#资源数统计" class="headerlink" title="资源数统计"></a>资源数统计</h3><p>截至目前，收到<span id="count-sentence-uploaded"></span>条台词投稿，审核通过入库<span id="count-sentence-approved"></span>条；库中有壁纸<span id="count-wallpaper-approved"></span>张。</p>
+<h3 id="资源数"><a href="#资源数" class="headerlink" title="资源数"></a>资源数</h3><table class="table table-striped">
+<thead>
+<tr>
+<th>资源类型</th>
+<th>数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>台词（累计收到）</td>
+<td><span id="count-sentence-uploaded"></span></td>
+</tr><tr>
+<td>台词（审核通过）</td>
+<td><span id="count-sentence-approved"></span></td>
+</tr><tr>
+<td>壁纸</td>
+<td><span id="count-wallpaper-approved"></span></td>
+</tr>
+</tbody></table>
+<!-- 截至目前，收到<span id="count-sentence-uploaded"></span>条台词投稿，审核通过入库<span id="count-sentence-approved"></span>条；库中有壁纸<span id="count-wallpaper-approved"></span>张。 -->
+
+
 <p>以上均为您打开本页面时刻的数据。</p>
 
         </div>
@@ -358,7 +397,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -370,10 +409,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         // CONTENT_URL: '/content.json',

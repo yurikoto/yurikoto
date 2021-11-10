@@ -6,7 +6,8 @@
   <meta name="description" content="百合主题台词、壁纸API。您可在本站欣赏橘里橘气美图美句，也可以免费调用我们提供的API。">
   <meta name="keywords" content="百合, yuri, 动漫, 橘里橘气, 台词, 壁纸, API, 开发者, 开源, 接口, 二次元">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.6.0"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.6.0"></script> -->
+  <script src="https://yurikoto.com/js/yurikoto-app.js?ver=1.6.1"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"></script> -->
   <!-- <script src="/js/yurikoto-app.js"></script> -->
   
@@ -311,6 +312,35 @@
 <article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
 
   <div class="post-thumb">
+    <a href="/2021/11/10/1-6-1update/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://v1.yurikoto.com/wallpaper?id=114514">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2021-11-10 18:27</div>
+      <a href="/2021/11/10/1-6-1update/" class="post-title">
+        <h3>1-6-1update</h3>
+      </a>
+      <br>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2021/11/10/1-6-1update/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+    
+<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
     <a href="/2021/09/21/1-6-0update/">
       <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://v1.yurikoto.com/wallpaper?id=23337">
     </a>
@@ -337,7 +367,7 @@
 </article>
   
     
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
 
   <div class="post-thumb">
     <a href="/2021/09/21/1-5-1upgrade/">
@@ -366,7 +396,7 @@
 </article>
   
     
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
 
   <div class="post-thumb">
     <a href="/2021/01/26/WP-Yurikoto%E6%8F%92%E4%BB%B6%E4%B8%8A%E7%BA%BF/">
@@ -406,7 +436,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -418,10 +448,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         // CONTENT_URL: '/content.json',

@@ -1,7 +1,7 @@
 $(document).ready(function(){
     //控制台绘画
     console.log("%c##    ## ##     ## ########  #### ##    ##  #######  ########  #######  \n ##  ##  ##     ## ##     ##  ##  ##   ##  ##     ##    ##    ##     ## \n  ####   ##     ## ##     ##  ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ########   ##  #####    ##     ##    ##    ##     ## \n   ##    ##     ## ##   ##    ##  ##  ##   ##     ##    ##    ##     ## \n   ##    ##     ## ##    ##   ##  ##   ##  ##     ##    ##    ##     ## \n   ##     #######  ##     ## #### ##    ##  #######     ##     #######  ", "color: #fc8217");
-    console.log("%c     Ver 1.6.0  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
+    console.log("%c     Ver 1.6.1  By van_fantasy  Github https://github.com/yurikoto", "color: #fa7298");
     //移动端主页优化
     if(mobileCheck()){
         console.log("检测到您正在手机端浏览，已为您进行必要的UI优化。");
@@ -370,6 +370,8 @@ function get_statistics(){
                 $("#count-sentence-approved").text(data.data.sentence.approved);
                 $("#count-wallpaper-approved").text(data.data.wallpaper.approved);
                 $("#count-site-served").text(data.data.other.site_served);
+                $("#current-node").text(data.data.other.node);
+                $("#client-ip").text(data.data.other.client_ip);
             }catch(e){}
         }
     });

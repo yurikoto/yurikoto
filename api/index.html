@@ -6,7 +6,8 @@
   <meta name="description" content="百合主题台词、壁纸API。您可在本站欣赏橘里橘气美图美句，也可以免费调用我们提供的API。">
   <meta name="keywords" content="百合, yuri, 动漫, 橘里橘气, 台词, 壁纸, API, 开发者, 开源, 接口, 二次元">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.6.0"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/yurikoto/yurikoto@gh-pages/js/yurikoto-app.js?ver=1.6.0"></script> -->
+  <script src="https://yurikoto.com/js/yurikoto-app.js?ver=1.6.1"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"></script> -->
   <!-- <script src="/js/yurikoto-app.js"></script> -->
   
@@ -318,11 +319,11 @@
           <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>调用本站服务或在本站进行投稿，代表您已仔细阅读并同意<a href="/protocol/"><strong>使用条款</strong></a>。</p>
 <h3 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h3><p>目前，Yurikoto提供两个API以供调用，即台词与壁纸API。<br>当前API版本为V1，使用原生PHP编写。当前版本计划两年内长期支持。接口域名：<code>v1.yurikoto.com</code>，全球CDN加速。</p>
 <h3 id="调用量限制"><a href="#调用量限制" class="headerlink" title="调用量限制"></a>调用量限制</h3><p>对于网站等场景调用本站接口（正确设置HTTP报文头Referer字段，Ajax等调用方式浏览器会自动设置）每个ip每3秒可调用10次；对于浏览器等场景直接访问本站接口（未设置或未正确设置HTTP报文头Referer字段，如<code>window.open()</code>），每个ip每分钟可调用5次。本站检查HTTP报文头主要目的是防止滥用。</p>
-<h3 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h3><p><strong>本站的所有台词、壁纸资源仅供个人、小型团体的非盈利性软件、站点使用，严禁商用！</strong>如果您发现有站点滥用本站服务，请邮件联系<a href="mailto:&#115;&#117;&#x70;&#112;&#x6f;&#x72;&#116;&#x40;&#x6b;&#x73;&#97;&#114;&#x2e;&#x63;&#99;">&#115;&#117;&#x70;&#112;&#x6f;&#x72;&#116;&#x40;&#x6b;&#x73;&#97;&#114;&#x2e;&#x63;&#99;</a>。</p>
+<h3 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h3><p><strong>本站的所有台词、壁纸资源仅供个人、小型团体的非盈利性软件、站点使用，严禁商用！</strong>如果您发现有站点滥用本站服务，请邮件联系<a href="mailto:&#115;&#117;&#x70;&#x70;&#111;&#x72;&#116;&#64;&#x6b;&#115;&#x61;&#x72;&#46;&#99;&#99;">&#115;&#117;&#x70;&#x70;&#111;&#x72;&#116;&#64;&#x6b;&#115;&#x61;&#x72;&#46;&#99;&#99;</a>。</p>
 <h3 id="台词API"><a href="#台词API" class="headerlink" title="台词API"></a><a href="/sentence/">台词API</a></h3><p>每次随机获取一条台词，详见<a href="/sentence/">这里</a>。</p>
 <h3 id="壁纸API"><a href="#壁纸API" class="headerlink" title="壁纸API"></a><a href="/wallpaper/">壁纸API</a></h3><p>每次随机获取一张壁纸，可指定类型，详见<a href="/wallpaper/">这里</a>。</p>
-<h3 id="投稿"><a href="#投稿" class="headerlink" title="投稿"></a>投稿</h3><p>由于服务器带宽与性能不足，目前仅开放台词投稿功能。如果需要投稿壁纸或大量投稿台词，请联系<a href="mailto:&#115;&#x75;&#112;&#112;&#111;&#114;&#x74;&#64;&#107;&#115;&#x61;&#x72;&#46;&#x63;&#x63;">&#115;&#x75;&#112;&#112;&#111;&#114;&#x74;&#64;&#107;&#115;&#x61;&#x72;&#46;&#x63;&#x63;</a>，详见<a href="/upload/">这里</a>。</p>
-<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><p>本站管理员看过的百合作品有限，难免会有资源错误的情况，特别是壁纸更是重灾区（曾有过误将某后*游戏相关图片入库的严重错误）。如果您发现本站资源有任何错误，请联系<a href="mailto:&#x73;&#x75;&#112;&#112;&#111;&#x72;&#116;&#64;&#107;&#x73;&#97;&#114;&#x2e;&#x63;&#x63;">&#x73;&#x75;&#112;&#112;&#111;&#x72;&#116;&#64;&#107;&#x73;&#97;&#114;&#x2e;&#x63;&#x63;</a>。</p>
+<h3 id="投稿"><a href="#投稿" class="headerlink" title="投稿"></a>投稿</h3><p>由于服务器带宽与性能不足，目前仅开放台词投稿功能。如果需要投稿壁纸或大量投稿台词，请联系<a href="mailto:&#115;&#117;&#x70;&#112;&#x6f;&#114;&#116;&#64;&#107;&#115;&#x61;&#114;&#46;&#99;&#99;">&#115;&#117;&#x70;&#112;&#x6f;&#114;&#116;&#64;&#107;&#115;&#x61;&#114;&#46;&#99;&#99;</a>，详见<a href="/upload/">这里</a>。</p>
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><p>本站管理员看过的百合作品有限，难免会有资源错误的情况，特别是壁纸更是重灾区（曾有过误将某后*游戏相关图片入库的严重错误）。如果您发现本站资源有任何错误，请联系<a href="mailto:&#x73;&#x75;&#x70;&#x70;&#111;&#114;&#116;&#x40;&#x6b;&#115;&#97;&#114;&#46;&#99;&#99;">&#x73;&#x75;&#x70;&#x70;&#111;&#114;&#116;&#x40;&#x6b;&#115;&#97;&#114;&#46;&#99;&#99;</a>。</p>
 <h3 id="曾使用版本"><a href="#曾使用版本" class="headerlink" title="曾使用版本"></a>曾使用版本</h3><h5 id="2020-12-31版api"><a href="#2020-12-31版api" class="headerlink" title="2020-12-31版api"></a>2020-12-31版api</h5><p>请求地址：<code>yuri.tigerxly.com/api</code>。仍可正常调用，但资源不再更新。该版本api<a target="_blank" rel="noopener" href="https://blog.tigerxly.com/1877.html">详见这里</a>。</p>
 
         </div>
@@ -338,7 +339,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -350,10 +351,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         // CONTENT_URL: '/content.json',
